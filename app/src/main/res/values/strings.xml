@@ -7,4 +7,5 @@
     <string name="adult_passenger">Người lớn</string>
     <string name="child_passenger">Trẻ em</string>
     <string name="baby_passenger">Em bé</string>
+    <string name="passenger">Hành khách</string>
 </resources>
