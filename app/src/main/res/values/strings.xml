@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Flight Booking</string>
     <string name="return_trip">Khứ hồi</string>
+    <string name="toolbar_title_step1">Chuyến bay</string>
+    <string name="outward_leg">Lượt đi</string>
+    <string name="return_leg">Lượt về</string>
+    <string name="adult_passenger">Người lớn</string>
+    <string name="child_passenger">Trẻ em</string>
+    <string name="baby_passenger">Em bé</string>
 </resources>

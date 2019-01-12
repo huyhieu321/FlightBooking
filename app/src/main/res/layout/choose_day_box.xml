@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="4dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="4dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,10 +19,12 @@
             android:orientation="vertical"
             android:layout_weight="1">
             <ImageView
+                android:layout_gravity="center_horizontal"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="@drawable/ic_launcher_foreground"/>
+                android:background="@drawable/ic_calendar"/>
             <CheckBox
+                android:layout_gravity="center_horizontal"
                 android:id="@+id/mReturnTripCheckbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,6 +48,7 @@
                 android:textColor="@color/black"
                 android:layout_gravity="center" />
             <TextView
+                android:id="@+id/txtOriginDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="27"
@@ -50,12 +57,15 @@
                 android:textColor="@color/blue_border"
                 android:layout_gravity="center"/>
             <TextView
+                android:id="@+id/txtOriginMonth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tháng 8"
                 android:textColor="@color/blue_border"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                />
             <TextView
+                android:id="@+id/txtOriginYear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chủ nhật 2018"
@@ -74,7 +84,8 @@
             android:orientation="vertical"
             android:background="@drawable/choose_day_border"
             android:gravity="center_vertical"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:visibility="visible" >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -83,6 +94,7 @@
                 android:textColor="@color/black"
                 android:layout_gravity="center" />
             <TextView
+                android:id="@+id/txtDestinationDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="30"
@@ -91,16 +103,60 @@
                 android:textColor="@color/blue_border"
                 android:layout_gravity="center"/>
             <TextView
+                android:id="@+id/txtDestinationMonth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tháng 8"
                 android:textColor="@color/blue_border"
                 android:layout_gravity="center"/>
             <TextView
+                android:id="@+id/txtDestinationYear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thứ 4 2018"
                 android:textColor="@color/gray_border"
+                android:layout_gravity="center"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/mDestinationDayLayoutDisabled"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:padding="4dp"
+            android:orientation="vertical"
+            android:background="@drawable/choose_day_border_disabled"
+            android:gravity="center_vertical"
+            android:layout_gravity="center"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ngày về"
+                android:textStyle="bold"
+                android:textColor="@color/gray_disabled"
+                android:layout_gravity="center" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/gray_disabled"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tháng 8"
+                android:textColor="@color/gray_disabled"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thứ 4 2018"
+                android:textColor="@color/gray_disabled"
                 android:layout_gravity="center"
                 android:textAlignment="center"/>
 

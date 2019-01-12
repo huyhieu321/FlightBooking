@@ -8,5 +8,9 @@
     <color name="black">#000</color>
     <color name="gray_border">#9e9999</color>
     <color name="gray_disabled">#c6c5c5</color>
-    <color name= "yellow_star">#dfaf0f</color>
+    <color name="yellow_star">#dfaf0f</color>
+    <color name="transparent">#00000000</color>
+    <color name="pink_button">#ee074d</color>
+    <color name="color_dedede">#dedede</color>
+    <color name="light_black">#757575</color>
 </resources>

@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChooseFlightActivity"></activity>
+        <activity android:name=".activity.ChooseFlightActivity"></activity>
     </application>
 
 </manifest>

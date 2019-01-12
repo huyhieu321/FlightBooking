@@ -4,7 +4,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="6dp">
+    app:cardCornerRadius="4dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="6dp">
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -49,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="440.000 VND"
+                android:text="440.000 VND/vé"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"
                 android:layout_alignParentRight="true"
