@@ -3,9 +3,10 @@ package com.hackathon.filighbooking.model.entity;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Flight {
+public class Flight implements Serializable{
     @SerializedName("cheapestClass")
     @Expose
     private String cheapestClass;

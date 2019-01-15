@@ -23,7 +23,7 @@
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
         android:textAlignment="center"
-        android:text="1"
+        android:text="0"
         android:textSize="20sp"
         android:textColor="@color/pink_button"/>
     <LinearLayout

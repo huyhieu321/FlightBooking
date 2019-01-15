@@ -13,7 +13,7 @@ import com.hackathon.filighbooking.R;
 
 public class CustomPlusSubView extends LinearLayout implements View.OnClickListener {
 
-    private static final int MIN_VALUE = 1;
+    private static final int MIN_VALUE = 0;
     private static final int MAX_VALUE = 4;
 
     // View members
@@ -47,9 +47,9 @@ public class CustomPlusSubView extends LinearLayout implements View.OnClickListe
         mSubtractBtn = findViewById(R.id.mCustomPlusSubBtnSubtract);
         mPlusBtn = findViewById(R.id.mCustomPlusSubBtnPlus);
         mEditText = findViewById(R.id.mCustomPlusSubEditText);
-
         mSubtractBtn.setOnClickListener(this);
         mPlusBtn.setOnClickListener(this);
+
     }
 
     @Override
@@ -66,10 +66,10 @@ public class CustomPlusSubView extends LinearLayout implements View.OnClickListe
                 }
                 break;
             case R.id.mCustomPlusSubBtnSubtract:
-                if (mValue > 1) {
+                if (mValue > 0) {
                     mValue = mValue - 1;
                     mEditText.setText(String.valueOf(mValue));
-                    if (mValue == 1)
+                    if (mValue == MIN_VALUE)
                         setUnableStateForSubButton();
                     if (isMax)
                         setEnableStateForPlusButton();

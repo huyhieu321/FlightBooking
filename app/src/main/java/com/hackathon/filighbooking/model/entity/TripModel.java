@@ -1,12 +1,13 @@
 package com.hackathon.filighbooking.model.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class TripModel {
+public class TripModel implements Serializable{
     private String originPlaceID;
     private String destinationPlaceID;
-    private Date orginDay;
+    private Date originDay;
     private Date destinationDay;
 
     private boolean isReturnFlight;
@@ -29,11 +30,11 @@ public class TripModel {
     }
 
     public Date getOrginDay() {
-        return orginDay;
+        return originDay;
     }
 
-    public void setOrginDay(Date orginDay) {
-        this.orginDay = orginDay;
+    public void setOrginDay(Date originDay) {
+        this.originDay = originDay;
     }
 
     public Date getDestinationDay() {

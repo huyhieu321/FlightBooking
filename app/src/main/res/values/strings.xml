@@ -8,4 +8,7 @@
     <string name="child_passenger">Trẻ em</string>
     <string name="baby_passenger">Em bé</string>
     <string name="passenger">Hành khách</string>
+    <string name="month">Tháng </string>
+    <string name="originPlaceTitle">Điểm đi</string>
+    <string name="destinationPlaceTitle">Điểm đến</string>
 </resources>

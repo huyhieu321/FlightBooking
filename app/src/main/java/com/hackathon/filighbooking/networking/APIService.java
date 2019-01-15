@@ -1,6 +1,9 @@
 package com.hackathon.filighbooking.networking;
 
 import com.google.gson.JsonObject;
+import com.hackathon.filighbooking.model.entity.Flight;
+
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -12,5 +15,5 @@ import retrofit2.http.Url;
 
 public interface APIService {
     @GET
-    Call<ResponseBody> getFlight(@Header("Authorization") String token, @Url String url);
+    Call<List<Flight>> getFlight(@Header("Authorization") String token, @Url String url);
 }

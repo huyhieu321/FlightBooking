@@ -1,6 +1,5 @@
 package com.hackathon.filighbooking.activity;
 
-import android.content.Intent;
 import android.os.Build.VERSION_CODES;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentManager;
@@ -16,27 +15,30 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hackathon.filighbooking.Dialog.SearchPlaceDialog;
 import com.hackathon.filighbooking.model.entity.Flight;
+import com.hackathon.filighbooking.model.entity.TripModel;
 import com.hackathon.filighbooking.presenter.TripModelPresenter;
 import com.hackathon.filighbooking.networking.APIService;
 import com.hackathon.filighbooking.networking.APIUtils;
 import com.hackathon.filighbooking.R;
 
-import java.sql.Time;
 import java.util.Calendar;
-import java.util.Date;
+
 
 
 public class MainActivity extends AppCompatActivity implements MainView,OnCheckedChangeListener,View.OnClickListener {
     LinearLayout mDestinationDayLayout,mDestinationDayLayoutDisabled;
     CheckBox mReturnTripCheckBox;
     TextView txtOriginPlace,txtDestinationPlace, txtOriginDate, txtOriginMonth,txtOriginYear,
-            txtDestinationDay,txtDestinationMonth,txtDestinationYear;
+            txtDestinationDate,txtDestinationMonth,txtDestinationYear,
+            txtDestinationDateDisable,txtDestinationMonthDisable,txtDestinationYearDisable;
     APIService mApiService;
     Button btnFindFlights;
+
+    TripModel mTripModel = new TripModel();
+
     @RequiresApi(api = VERSION_CODES.LOLLIPOP)
     @Override
 
@@ -77,21 +79,34 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
         });
     }
     private void initView() {
-        // Find View
+
+        // Place box
+        txtOriginPlace = findViewById(R.id.txtOriginPlace);
+        txtDestinationPlace = findViewById(R.id.txtDestinationPlace);
+
+        //Date box
         mDestinationDayLayout = findViewById(R.id.mDestinationDayLayout);
         mDestinationDayLayoutDisabled = findViewById(R.id.mDestinationDayLayoutDisabled);
         mReturnTripCheckBox = findViewById(R.id.mReturnTripCheckbox);
-        txtOriginPlace = findViewById(R.id.txtOriginPlace);
-        txtDestinationPlace = findViewById(R.id.txtDestinationPlace);
-        btnFindFlights = findViewById(R.id.btnFindFlights);
+
         txtOriginDate = findViewById(R.id.txtOriginDate);
         txtOriginMonth = findViewById(R.id.txtOriginMonth);
         txtOriginYear = findViewById(R.id.txtOriginYear);
-        txtDestinationDay = findViewById(R.id.txtDestinationDay);
+
+        txtDestinationDate = findViewById(R.id.txtDestinationDay);
         txtDestinationMonth = findViewById(R.id.txtDestinationMonth);
         txtDestinationYear = findViewById(R.id.txtDestinationYear);
+
+        txtDestinationDateDisable = findViewById(R.id.txtDestinationDayDisable);
+        txtDestinationMonthDisable = findViewById(R.id.txtDestinationMonthDisable);
+        txtDestinationYearDisable = findViewById(R.id.txtDestinationYearDisable);
+
+
         // set default check box true
         mReturnTripCheckBox.setChecked(true);
+
+        // Button
+        btnFindFlights = findViewById(R.id.btnFindFlights);
 
         // Set Listener
         mReturnTripCheckBox.setOnCheckedChangeListener(this);
@@ -100,42 +115,48 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
         btnFindFlights.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ChooseFlightActivity.class);
-                startActivity(intent);
+
+                if(mTripModel!=null){
+                    ChooseFlightActivity.open(MainActivity.this,mTripModel);
+                }
+
             }
         });
         mDestinationDayLayout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"Calendar",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this,"Calendar",Toast.LENGTH_SHORT).show();
             }
         });
     }
     public void initDateDefault(){
-        //Date currentTime = new Date(System.currentTimeMillis());
+        // Get current time and set to origin date box
         Calendar c = Calendar.getInstance();
         txtOriginDate.setText(String.valueOf(c.get(Calendar.DAY_OF_MONTH)));
-        txtOriginMonth.setText("Tháng "+ (c.get(Calendar.MONTH)+1));
-        String dayOfWeek = getDayOfWeekVietnamese(String.valueOf(c.get(Calendar.DAY_OF_WEEK)));
-        txtOriginYear.setText(dayOfWeek + String.valueOf(c.get(Calendar.YEAR)));
+        txtOriginMonth.setText( getString(R.string.month) +" "+ (c.get(Calendar.MONTH)+1));
+        String dayOfWeekOrigin = getDayOfWeekVietnamese(String.valueOf(c.get(Calendar.DAY_OF_WEEK)));
+        txtOriginYear.setText(dayOfWeekOrigin + String.valueOf(c.get(Calendar.YEAR)));
 
+        // Move to 3 days later, set to defaultDay at destination date box
+        Calendar defaultDay = getDefaultReturnDay(c);
+
+        txtDestinationDate.setText(String.valueOf(defaultDay.get(Calendar.DAY_OF_MONTH)));
+        txtDestinationMonth.setText(getString(R.string.month) +" " + (defaultDay.get(Calendar.MONTH)+1));
+        String dayOfWeekDestination = getDayOfWeekVietnamese(String.valueOf(defaultDay.get(Calendar.DAY_OF_WEEK)));
+        txtDestinationYear.setText(dayOfWeekDestination + String.valueOf(defaultDay.get(Calendar.YEAR)));
+
+        txtDestinationDateDisable.setText(String.valueOf(defaultDay.get(Calendar.DAY_OF_MONTH)));
+        txtDestinationMonthDisable.setText(getString(R.string.month) +" " + (defaultDay.get(Calendar.MONTH)+1));
+        txtDestinationYearDisable.setText(dayOfWeekDestination + String.valueOf(defaultDay.get(Calendar.YEAR)));
 
     }
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if(!isChecked){
-//            for (int i = 0; i < mDestinationDayLayout.getChildCount(); i++) {
-//                View child = mDestinationDayLayout.getChildAt(i);
-//                child.setEnabled(false);
-//            }
             mDestinationDayLayout.setVisibility(View.GONE);
             mDestinationDayLayoutDisabled.setVisibility(View.VISIBLE);
         }
         else {
-//            for (int i = 0; i < mDestinationDayLayout.getChildCount(); i++) {
-//                View child = mDestinationDayLayout.getChildAt(i);
-//                child.setEnabled(true);
-//            }
             mDestinationDayLayoutDisabled.setVisibility(View.GONE);
             mDestinationDayLayout.setVisibility(View.VISIBLE);
         }
@@ -168,5 +189,10 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
             case "1": return "Chủ nhật, ";
             default: return null;
         }
+    }
+    private Calendar getDefaultReturnDay(Calendar c){
+        c.add(Calendar.DAY_OF_YEAR,3);
+        Calendar defaultCalendar = c;
+        return defaultCalendar;
     }
 }
