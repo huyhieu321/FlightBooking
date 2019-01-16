@@ -9,6 +9,10 @@ public class TripModel implements Serializable{
     private String destinationPlaceID;
     private Date originDay;
     private Date destinationDay;
+    private Flight flightOutward;
+    private Flight flightReturn;
+    private boolean isReturnFlight;
+    private int numOfPassenger;
 
     public Date getOriginDay() {
         return originDay;
@@ -33,11 +37,6 @@ public class TripModel implements Serializable{
     public void setFlightReturn(Flight flightReturn) {
         this.flightReturn = flightReturn;
     }
-
-    private Flight flightOutward;
-    private Flight flightReturn;
-    private boolean isReturnFlight;
-
 
     public String getOriginPlaceID() {
         return originPlaceID;
@@ -79,4 +78,13 @@ public class TripModel implements Serializable{
     public void setReturnFlight(boolean returnFlight) {
         isReturnFlight = returnFlight;
     }
+
+    public int getNumOfPassenger() {
+        return numOfPassenger;
+    }
+
+    public void setNumOfPassenger(int numOfPassenger) {
+        this.numOfPassenger = numOfPassenger;
+    }
+
 }

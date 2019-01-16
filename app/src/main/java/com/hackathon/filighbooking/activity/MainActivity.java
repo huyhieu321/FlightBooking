@@ -16,7 +16,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hackathon.filighbooking.Dialog.SearchPlaceDialog;
+import com.hackathon.filighbooking.dialog.SearchPlaceDialog;
 import com.hackathon.filighbooking.model.entity.Flight;
 import com.hackathon.filighbooking.model.entity.TripModel;
 import com.hackathon.filighbooking.presenter.TripModelPresenter;
@@ -24,14 +24,10 @@ import com.hackathon.filighbooking.networking.APIService;
 import com.hackathon.filighbooking.networking.APIUtils;
 import com.hackathon.filighbooking.R;
 
-import org.billthefarmer.view.CustomCalendarDialog;
 import org.billthefarmer.view.CustomCalendarDialog.OnDateSetListener;
 import org.billthefarmer.view.CustomCalendarView;
-import org.billthefarmer.view.DayDecorator;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements MainView,OnCheckedChangeListener,View.OnClickListener,OnDateSetListener {
@@ -57,14 +53,11 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
         initDateDefault();
         mApiService = APIUtils.getAPIService();
         final TripModelPresenter presenter = new TripModelPresenter(this);
-//        View decorView = getWindow().getDecorView();
-//        // Hide the status bar.
-//        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-//        decorView.setSystemUiVisibility(uiOptions);
-        CustomCalendarDialog dialog = new CustomCalendarDialog(this,this,2019,1,16);
-        CustomCalendarView calendarView = dialog.getCalendarView();
 
-        dialog.show();
+//        CustomCalendarDialog dialog = new CustomCalendarDialog(this,this,2019,1,16);
+//        CustomCalendarView calendarView = dialog.getCalendarView();
+//
+//        dialog.show();
 
     }
     @Override
@@ -76,6 +69,38 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
     public void displayFlight(Flight flight) {
         Log.i("Result",flight.getOriginCode() + " " + flight.getDestinationCode());
     }
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if(!isChecked){
+            mDestinationDayLayout.setVisibility(View.GONE);
+            mDestinationDayLayoutDisabled.setVisibility(View.VISIBLE);
+        }
+        else {
+            mDestinationDayLayoutDisabled.setVisibility(View.GONE);
+            mDestinationDayLayout.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if(v.equals(txtOriginPlace)){
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            SearchPlaceDialog searchPlaceDialog = new SearchPlaceDialog(getString(R.string.outward_leg));
+            searchPlaceDialog.show(fragmentManager,null);
+        }
+        if(v.equals(txtDestinationPlace)){
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            SearchPlaceDialog searchPlaceDialog = new SearchPlaceDialog(getString(R.string.return_leg));
+            searchPlaceDialog.show(fragmentManager,null);
+        }
+        if (v.equals(btnFindFlights)){
+            if(mTripModel!=null){
+                ChooseFlightActivity.open(MainActivity.this,mTripModel);
+            }
+        }
+    }
+
     private void initToolbar(){
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.toolbar_title_step1);
@@ -145,37 +170,7 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
         txtDestinationYearDisable.setText(dayOfWeekDestination + String.valueOf(defaultDay.get(Calendar.YEAR)));
 
     }
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if(!isChecked){
-            mDestinationDayLayout.setVisibility(View.GONE);
-            mDestinationDayLayoutDisabled.setVisibility(View.VISIBLE);
-        }
-        else {
-            mDestinationDayLayoutDisabled.setVisibility(View.GONE);
-            mDestinationDayLayout.setVisibility(View.VISIBLE);
-        }
-    }
 
-    @Override
-    public void onClick(View v) {
-
-        if(v.equals(txtOriginPlace)){
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            SearchPlaceDialog searchPlaceDialog = new SearchPlaceDialog(getString(R.string.outward_leg));
-            searchPlaceDialog.show(fragmentManager,null);
-        }
-        if(v.equals(txtDestinationPlace)){
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            SearchPlaceDialog searchPlaceDialog = new SearchPlaceDialog(getString(R.string.return_leg));
-            searchPlaceDialog.show(fragmentManager,null);
-        }
-        if (v.equals(btnFindFlights)){
-            if(mTripModel!=null){
-                ChooseFlightActivity.open(MainActivity.this,mTripModel);
-            }
-        }
-    }
 
     private String getDayOfWeekVietnamese(String dayOfWeek){
 

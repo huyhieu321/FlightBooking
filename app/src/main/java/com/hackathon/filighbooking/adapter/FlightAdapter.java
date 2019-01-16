@@ -52,6 +52,7 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightViewHolder>  {
 
     @NonNull
     @Override
+
     public FlightViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View  v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_flights_information,viewGroup,false);
         return new FlightViewHolder(v);
@@ -59,18 +60,24 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightViewHolder>  {
 
     @Override
     public void onBindViewHolder(@NonNull FlightViewHolder flightViewHolder, int position) {
-        final Flight tempFlight = mListFlights.get(position);
-        flightViewHolder.txtOriginID.setText(tempFlight.getOriginCode());
-        flightViewHolder.txtDepartureTime.setText(tempFlight.getDepartureTime().substring(11,16));
-        flightViewHolder.txtDestinationID.setText(tempFlight.getDestinationCode());
-        flightViewHolder.txtArrivalTime.setText(tempFlight.getArrivalTime().substring(11,16));
-        flightViewHolder.txtFlightPrice.setText(tempFlight.getCheapestPrice()+" VND/vé");
+        if (mListFlights.size()>0){
+            Flight tempFlight = mListFlights.get(position);
+            flightViewHolder.txtOriginID.setText(tempFlight.getOriginCode());
+            flightViewHolder.txtDepartureTime.setText(formatTime(tempFlight.getDepartureTime()));
+            flightViewHolder.txtDestinationID.setText(tempFlight.getDestinationCode());
+            flightViewHolder.txtArrivalTime.setText(formatTime(tempFlight.getArrivalTime()));
+            flightViewHolder.txtFlightPrice.setText(tempFlight.getCheapestPrice()+" VND/vé");
+        }
     }
 
     @Override
     public int getItemCount() {
         if (mListFlights!=null) return mListFlights.size();
         else return 0;
+    }
+
+    private String formatTime(String time){
+        return time.substring(11,16);
     }
 }
 
