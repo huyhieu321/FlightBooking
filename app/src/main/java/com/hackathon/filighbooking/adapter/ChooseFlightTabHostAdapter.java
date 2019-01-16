@@ -12,7 +12,7 @@ import com.hackathon.filighbooking.model.entity.Flight;
 import java.util.List;
 
 public class ChooseFlightTabHostAdapter extends FragmentPagerAdapter {
-    boolean isReturnTrip = true ;
+    boolean isReturnTrip = false ;
     List<Flight> outwardListFlight, returnLegListFlights;
     public ChooseFlightTabHostAdapter(FragmentManager fm, boolean isReturnTrip,
                                       List<Flight> outwardLegListFlight, List<Flight> returnLegListFlight) {

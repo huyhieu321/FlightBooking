@@ -7,19 +7,20 @@ import java.util.List;
 public class TripModel implements Serializable{
     private String originPlaceID;
     private String destinationPlaceID;
-    private Date originDay;
-    private Date destinationDay;
+    private Date departureDay;
+    private Date returnDay;
     private Flight flightOutward;
     private Flight flightReturn;
     private boolean isReturnFlight;
     private int numOfPassenger;
 
-    public Date getOriginDay() {
-        return originDay;
-    }
-
-    public void setOriginDay(Date originDay) {
-        this.originDay = originDay;
+    public TripModel(String originPlaceID, String destinationPlaceID, Date departureDay, Date returnDay, boolean isReturnFlight, int numOfPassenger) {
+        this.originPlaceID = originPlaceID;
+        this.destinationPlaceID = destinationPlaceID;
+        this.departureDay = departureDay;
+        this.returnDay = returnDay;
+        this.isReturnFlight = isReturnFlight;
+        this.numOfPassenger = numOfPassenger;
     }
 
     public Flight getFlightOutward() {
@@ -54,23 +55,6 @@ public class TripModel implements Serializable{
         this.destinationPlaceID = destinationPlaceID;
     }
 
-    public Date getOrginDay() {
-        return originDay;
-    }
-
-    public void setOrginDay(Date originDay) {
-        this.originDay = originDay;
-    }
-
-    public Date getDestinationDay() {
-        return destinationDay;
-    }
-
-    public void setDestinationDay(Date destinationDay) {
-        this.destinationDay = destinationDay;
-    }
-
-    
     public boolean isReturnFlight() {
         return isReturnFlight;
     }
@@ -85,6 +69,22 @@ public class TripModel implements Serializable{
 
     public void setNumOfPassenger(int numOfPassenger) {
         this.numOfPassenger = numOfPassenger;
+    }
+
+    public Date getDepartureDay() {
+        return departureDay;
+    }
+
+    public void setDepartureDay(Date departureDay) {
+        this.departureDay = departureDay;
+    }
+
+    public Date getReturnDay() {
+        return returnDay;
+    }
+
+    public void setReturnDay(Date returnDay) {
+        this.returnDay = returnDay;
     }
 
 }

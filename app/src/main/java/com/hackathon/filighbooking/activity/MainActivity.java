@@ -28,6 +28,7 @@ import org.billthefarmer.view.CustomCalendarDialog.OnDateSetListener;
 import org.billthefarmer.view.CustomCalendarView;
 
 import java.util.Calendar;
+import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity implements MainView,OnCheckedChangeListener,View.OnClickListener,OnDateSetListener {
@@ -39,7 +40,10 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
     APIService mApiService;
     Button btnFindFlights;
 
-    TripModel mTripModel = new TripModel();
+    TripModel mTripModel;
+
+
+
 
     @RequiresApi(api = VERSION_CODES.LOLLIPOP)
     @Override
@@ -51,8 +55,17 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
         initToolbar();
         initView();
         initDateDefault();
+
+        //Test
+        Calendar calendar = Calendar.getInstance();
+        Date departureDate = calendar.getTime();
+        calendar.add(Calendar.DAY_OF_MONTH,2);
+        Date returnDate = calendar.getTime();
+        mTripModel = new TripModel("TBB","HAN",departureDate,returnDate,false,2);
+
+        /*********/
         mApiService = APIUtils.getAPIService();
-        final TripModelPresenter presenter = new TripModelPresenter(this);
+       // final TripModelPresenter presenter = new TripModelPresenter(this);
 
 //        CustomCalendarDialog dialog = new CustomCalendarDialog(this,this,2019,1,16);
 //        CustomCalendarView calendarView = dialog.getCalendarView();
