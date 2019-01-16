@@ -10,8 +10,34 @@ public class TripModel implements Serializable{
     private Date originDay;
     private Date destinationDay;
 
+    public Date getOriginDay() {
+        return originDay;
+    }
+
+    public void setOriginDay(Date originDay) {
+        this.originDay = originDay;
+    }
+
+    public Flight getFlightOutward() {
+        return flightOutward;
+    }
+
+    public void setFlightOutward(Flight flightOutward) {
+        this.flightOutward = flightOutward;
+    }
+
+    public Flight getFlightReturn() {
+        return flightReturn;
+    }
+
+    public void setFlightReturn(Flight flightReturn) {
+        this.flightReturn = flightReturn;
+    }
+
+    private Flight flightOutward;
+    private Flight flightReturn;
     private boolean isReturnFlight;
-    private List<Flight> listFlight = null;
+
 
     public String getOriginPlaceID() {
         return originPlaceID;
@@ -45,13 +71,6 @@ public class TripModel implements Serializable{
         this.destinationDay = destinationDay;
     }
 
-    public List<Flight> getListFlight() {
-        return listFlight;
-    }
-
-    public void setListFlight(List<Flight> listFlight) {
-        this.listFlight = listFlight;
-    }
     
     public boolean isReturnFlight() {
         return isReturnFlight;

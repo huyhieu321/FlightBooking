@@ -31,7 +31,7 @@
             android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/txtStartTime"
+            android:id="@+id/txtDepartureTime"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -46,7 +46,7 @@
             android:src="@drawable/ic_flight" />
 
         <TextView
-            android:id="@+id/txtDepartureTime"
+            android:id="@+id/txtArrivalTime"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -64,6 +64,7 @@
             android:textAlignment="center"/>
     </LinearLayout>
     <TextView
+        android:id="@+id/txtFlightDuration"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

@@ -24,11 +24,17 @@ import com.hackathon.filighbooking.networking.APIService;
 import com.hackathon.filighbooking.networking.APIUtils;
 import com.hackathon.filighbooking.R;
 
+import org.billthefarmer.view.CustomCalendarDialog;
+import org.billthefarmer.view.CustomCalendarDialog.OnDateSetListener;
+import org.billthefarmer.view.CustomCalendarView;
+import org.billthefarmer.view.DayDecorator;
+
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 
-
-public class MainActivity extends AppCompatActivity implements MainView,OnCheckedChangeListener,View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements MainView,OnCheckedChangeListener,View.OnClickListener,OnDateSetListener {
     LinearLayout mDestinationDayLayout,mDestinationDayLayoutDisabled;
     CheckBox mReturnTripCheckBox;
     TextView txtOriginPlace,txtDestinationPlace, txtOriginDate, txtOriginMonth,txtOriginYear,
@@ -43,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
     @Override
 
 
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initToolbar();
@@ -55,7 +61,10 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
 //        // Hide the status bar.
 //        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
 //        decorView.setSystemUiVisibility(uiOptions);
+        CustomCalendarDialog dialog = new CustomCalendarDialog(this,this,2019,1,16);
+        CustomCalendarView calendarView = dialog.getCalendarView();
 
+        dialog.show();
 
     }
     @Override
@@ -112,22 +121,8 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
         mReturnTripCheckBox.setOnCheckedChangeListener(this);
         txtOriginPlace.setOnClickListener(this);
         txtDestinationPlace.setOnClickListener(this);
-        btnFindFlights.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(mTripModel!=null){
-                    ChooseFlightActivity.open(MainActivity.this,mTripModel);
-                }
-
-            }
-        });
-        mDestinationDayLayout.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Toast.makeText(MainActivity.this,"Calendar",Toast.LENGTH_SHORT).show();
-            }
-        });
+        mDestinationDayLayout.setOnClickListener(this);
+        btnFindFlights.setOnClickListener(this);
     }
     public void initDateDefault(){
         // Get current time and set to origin date box
@@ -144,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
         txtDestinationMonth.setText(getString(R.string.month) +" " + (defaultDay.get(Calendar.MONTH)+1));
         String dayOfWeekDestination = getDayOfWeekVietnamese(String.valueOf(defaultDay.get(Calendar.DAY_OF_WEEK)));
         txtDestinationYear.setText(dayOfWeekDestination + String.valueOf(defaultDay.get(Calendar.YEAR)));
-
+        // Also set for disabled layout
         txtDestinationDateDisable.setText(String.valueOf(defaultDay.get(Calendar.DAY_OF_MONTH)));
         txtDestinationMonthDisable.setText(getString(R.string.month) +" " + (defaultDay.get(Calendar.MONTH)+1));
         txtDestinationYearDisable.setText(dayOfWeekDestination + String.valueOf(defaultDay.get(Calendar.YEAR)));
@@ -164,16 +159,21 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
 
     @Override
     public void onClick(View v) {
-        TextView textView = (TextView) v;
-        if(textView.equals(txtOriginPlace)){
+
+        if(v.equals(txtOriginPlace)){
             FragmentManager fragmentManager = getSupportFragmentManager();
             SearchPlaceDialog searchPlaceDialog = new SearchPlaceDialog(getString(R.string.outward_leg));
             searchPlaceDialog.show(fragmentManager,null);
         }
-        if(textView.equals(txtDestinationPlace)){
+        if(v.equals(txtDestinationPlace)){
             FragmentManager fragmentManager = getSupportFragmentManager();
             SearchPlaceDialog searchPlaceDialog = new SearchPlaceDialog(getString(R.string.return_leg));
             searchPlaceDialog.show(fragmentManager,null);
+        }
+        if (v.equals(btnFindFlights)){
+            if(mTripModel!=null){
+                ChooseFlightActivity.open(MainActivity.this,mTripModel);
+            }
         }
     }
 
@@ -194,5 +194,10 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
         c.add(Calendar.DAY_OF_YEAR,3);
         Calendar defaultCalendar = c;
         return defaultCalendar;
+    }
+
+    @Override
+    public void onDateSet(CustomCalendarView view, int year, int month, int date) {
+
     }
 }

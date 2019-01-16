@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tool="http://schemas.android.com/tools"
     android:layout_margin="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="4dp"
@@ -30,7 +31,7 @@
                     android:id="@+id/txtFlightStar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5"
+                    tool:text="5"
                     android:textColor="@color/yellow_star"
                     android:textStyle="bold"
                     android:layout_marginLeft="8dp"
@@ -45,14 +46,15 @@
                     android:id="@+id/txtFlightClass"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Economy | Bay Thẳng"
+                    tool:text="Economy | Bay Thẳng"
                     android:layout_gravity="center_vertical"/>
             </LinearLayout>
             <TextView
+                android:id="@+id/txtFlightPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="440.000 VND/vé"
-                android:textColor="@color/colorAccent"
+                tool:text="440.000 VND/vé"
+                android:textColor="@color/pink_button"
                 android:textStyle="bold"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true" />
