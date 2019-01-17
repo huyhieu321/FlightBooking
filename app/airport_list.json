@@ -1,0 +1,412 @@
+[
+  {
+    "airport": "Sân bay quốc tế Tân Sơn Nhất",
+    "type": "night",
+    "code": "SGN",
+    "name": "Tp. Hồ Chí Minh",
+    "normalizedName": "Tp. Ho Chi Minh",
+    "shortName": "TP.HCM",
+    "category_name": "hochiminh",
+    "timezone": "+0700"
+  },
+  {
+    "name": "Hà Nội",
+    "normalizedName": "Ha Noi",
+    "airport": "Sân bay quốc tế Nội Bài",
+    "type": "day",
+    "code": "HAN",
+    "shortName": "Hà Nội",
+    "category_name": "hanoi",
+    "timezone": "+0700"
+  },
+  {
+    "code": "DAD",
+    "name": "Đà Nẵng",
+    "normalizedName": "Da Nang",
+    "airport": "Sân bay quốc tế Đà Nẵng",
+    "type": "night",
+    "shortName": "Đ.Nẵng",
+    "category_name": "da-nang",
+    "timezone": "+0700"
+  },
+  {
+    "code": "CXR",
+    "name": "Nha Trang",
+    "normalizedName": "Nha Trang",
+    "airport": "Sân bay quốc tế Cam Ranh",
+    "type": "day",
+    "shortName": "N.Trang",
+    "category_name": "nha-trang",
+    "timezone": "+0700"
+  },
+  {
+    "normalizedName": "Hai Phong",
+    "airport": "Sân bay quốc tế Cát Bi",
+    "type": "day",
+    "code": "HPH",
+    "name": "Hải Phòng",
+    "shortName": "H.Phòng",
+    "category_name": "hai-phong",
+    "timezone": "+0700"
+  },
+  {
+    "airport": "Sân bay quốc tế Phú Bài",
+    "type": "day",
+    "code": "HUI",
+    "name": "Huế",
+    "normalizedName": "Hue",
+    "shortName": "Huế",
+    "category_name": "hue-vietnam-destnation",
+    "timezone": "+0700"
+  },
+  {
+    "name": "Phú Quốc",
+    "normalizedName": "Phu Quoc",
+    "airport": "Sân bay quốc tế Phú Quốc",
+    "type": "day",
+    "code": "PQC",
+    "shortName": "Ph.Quốc",
+    "category_name": "phu-quoc",
+    "timezone": "+0700"
+  },
+  {
+    "normalizedName": "Da Lat",
+    "airport": "Sân bay quốc tế Liên Khương",
+    "type": "night",
+    "code": "DLI",
+    "name": "Đà Lạt",
+    "shortName": "Đ.Lạt",
+    "category_name": "da-lat-vietnam-destnation",
+    "timezone": "+0700"
+  },
+  {
+    "airport": "Sân bay Buôn Ma Thuột",
+    "type": "night",
+    "code": "BMV",
+    "name": "Buôn Ma Thuột",
+    "normalizedName": "Buon Ma Thuot",
+    "shortName": "BMT",
+    "category_name": "buon-ma-thuot-vietnam-destnation",
+    "timezone": "+0700"
+  },
+  {
+    "code": "CAH",
+    "name": "Cà Mau",
+    "normalizedName": "Ca Mau",
+    "airport": "Sân bay Cà Mau",
+    "type": "day",
+    "shortName": "Cà Mau",
+    "category_name": "ca-mau-vietnam-destnation",
+    "timezone": "+0700"
+  },
+  {
+    "airport": "Sân bay Điện Biên Phủ",
+    "type": "night",
+    "code": "DIN",
+    "name": "Điện Biên Phủ",
+    "normalizedName": "Dien Bien Phu",
+    "shortName": "ĐB.Phủ",
+    "category_name": "dien-bien",
+    "timezone": "+0700"
+  },
+  {
+    "code": "PXU",
+    "name": "Pleiku",
+    "normalizedName": "Pleiku",
+    "airport": "Sân bay Pleiku",
+    "type": "day",
+    "shortName": "Pleiku",
+    "category_name": "gia-lai-pleiku",
+    "timezone": "+0700"
+  },
+  {
+    "airport": "Sân bay Đông Tác",
+    "type": "day",
+    "code": "TBB",
+    "name": "Tuy Hòa",
+    "normalizedName": "Tuy Hoa",
+    "shortName": "Tuy Hòa",
+    "category_name": "nha-trang",
+    "timezone": "+0700"
+  },
+  {
+    "name": "Thanh Hóa",
+    "normalizedName": "Thanh Hoa",
+    "airport": "Sân bay Thanh Hóa",
+    "type": "day",
+    "code": "THD",
+    "shortName": "Th.Hóa",
+    "category_name": "vinh-nghe-an",
+    "timezone": "+0700"
+  },
+  {
+    "normalizedName": "Qui Nhon",
+    "airport": "Sân bay Phù Cát",
+    "type": "day",
+    "code": "UIH",
+    "name": "Qui Nhơn",
+    "shortName": "Q.Nhơn",
+    "category_name": "quy-nhon-vietnam-destnation",
+    "timezone": "+0700"
+  },
+  {
+    "type": "night",
+    "code": "VCA",
+    "name": "Cần Thơ",
+    "normalizedName": "Can Tho",
+    "airport": "Sân bay quốc tế Cần Thơ",
+    "shortName": "Cần Thơ",
+    "category_name": "can-tho-vietnam-destnation",
+    "timezone": "+0700"
+  },
+  {
+    "code": "VCL",
+    "name": "Quảng Nam - Chu Lai",
+    "normalizedName": "Quang Nam - Chu Lai",
+    "airport": "Sân bay Chu Lai",
+    "type": "night",
+    "shortName": "Ch.Lai",
+    "category_name": "da-nang",
+    "timezone": "+0700"
+  },
+  {
+    "code": "VCS",
+    "name": "Côn Đảo",
+    "normalizedName": "Con Dao",
+    "airport": "Sân bay Cỏ Ống",
+    "type": "day",
+    "shortName": "Côn Đảo",
+    "category_name": "con-dao-vietnam-destnation",
+    "timezone": "+0700"
+  },
+  {
+    "code": "VDH",
+    "name": "Đồng Hới",
+    "normalizedName": "Dong Hoi",
+    "airport": "Sân bay Đồng Hới",
+    "type": "day",
+    "shortName": "Đ.Hới",
+    "category_name": "dong-hoi-vietnam-destnation",
+    "timezone": "+0700"
+  },
+  {
+    "code": "VII",
+    "name": "Vinh",
+    "normalizedName": "Vinh",
+    "airport": "Sân bay Vinh",
+    "type": "night",
+    "shortName": "Vinh",
+    "category_name": "vinh-nghe-an",
+    "timezone": "+0700"
+  },
+  {
+    "name": "Rạch Giá",
+    "normalizedName": "Rach Gia",
+    "airport": "Sân bay Rạch Giá",
+    "type": "day",
+    "code": "VKG",
+    "shortName": "R.Giá",
+    "category_name": "rach-gia-vietnam-destnation",
+    "timezone": "+0700"
+  },
+  {
+    "normalizedName": "Singapore",
+    "airport": "Singapore",
+    "type": "night",
+    "code": "SIN",
+    "name": "Singapore",
+    "shortName": "Singapo",
+    "category_name": "singapore-dna",
+    "timezone": "+0800"
+  },
+  {
+    "type": "night",
+    "code": "BKK",
+    "name": "Bangkok",
+    "normalizedName": "Bangkok",
+    "airport": "Bangkok",
+    "shortName": "Bangkok",
+    "category_name": "thai-lan-dna",
+    "timezone": "+0700"
+  },
+  {
+    "code": "DMK",
+    "name": "Bangkok (DMK)",
+    "normalizedName": "Bangkok (DMK)",
+    "airport": "Bangkok (DMK)",
+    "type": "night",
+    "shortName": "Bangkok",
+    "category_name": "thai-lan-dna",
+    "timezone": "+0700"
+  },
+  {
+    "name": "Phuket",
+    "normalizedName": "Phuket",
+    "airport": "Phuket",
+    "type": "day",
+    "code": "HKT",
+    "shortName": "Phuket",
+    "category_name": "thai-lan-dna",
+    "timezone": "+0700"
+  },
+  {
+    "code": "JKT",
+    "name": "Jakarta",
+    "normalizedName": "Jakarta",
+    "airport": "Jakarta",
+    "type": "day",
+    "shortName": "Jakarta",
+    "category_name": "indonesia-dna",
+    "timezone": "+0700"
+  },
+  {
+    "normalizedName": "Manila",
+    "airport": "Manila",
+    "type": "night",
+    "code": "MNL",
+    "name": "Manila",
+    "shortName": "Manila",
+    "category_name": "philippines-dna",
+    "timezone": "+0800"
+  },
+  {
+    "type": "day",
+    "code": "CGK",
+    "name": "Jakarta (CGK)",
+    "normalizedName": "Jakarta (CGK)",
+    "airport": "Jakarta (CGK)",
+    "shortName": "CGK",
+    "category_name": "indonesia-dna",
+    "timezone": "+0700"
+  },
+  {
+    "code": "KUL",
+    "name": "Kuala Lumpur",
+    "normalizedName": "Kuala Lumpur",
+    "airport": "Kuala Lumpur",
+    "type": "night",
+    "shortName": "KLumpur",
+    "category_name": "malaysia-dna",
+    "timezone": "+0800"
+  },
+  {
+    "code": "PNH",
+    "name": "Phnom Penh",
+    "normalizedName": "Phnom Penh",
+    "airport": "Phnom Penh",
+    "type": "night",
+    "shortName": "Ph.Penh",
+    "category_name": "cambodia-dna",
+    "timezone": "+0700"
+  },
+  {
+    "code": "REP",
+    "name": "Siem Reap",
+    "normalizedName": "Siem Reap",
+    "airport": "Siem Reap",
+    "type": "day",
+    "shortName": "S.Reap",
+    "category_name": "cambodia-dna",
+    "timezone": "+0700"
+  },
+  {
+    "name": "Yangon",
+    "normalizedName": "Yangon",
+    "airport": "Yangon",
+    "type": "day",
+    "code": "RGN",
+    "shortName": "Yangon",
+    "category_name": "myanmar-dna",
+    "timezone": "+0630"
+  },
+  {
+    "code": "HKG",
+    "name": "Hong Kong",
+    "normalizedName": "Hong Kong",
+    "airport": "Hong Kong",
+    "type": "night",
+    "shortName": "H.Kong",
+    "category_name": "hongkong-dna",
+    "timezone": "+0800"
+  },
+  {
+    "code": "TPE",
+    "name": "Đài Bắc",
+    "normalizedName": "Đài Bắc",
+    "airport": "Đài Bắc",
+    "type": "day",
+    "shortName": "Đài Bắc",
+    "category_name": "taiwan",
+    "timezone": "+0800"
+  },
+  {
+    "code": "ICN",
+    "name": "Seoul Incheon",
+    "normalizedName": "Seoul Incheon",
+    "airport": "Sân bay Incheon",
+    "type": "night",
+    "shortName": "Incheon",
+    "category_name": "korea",
+    "timezone": "+0900"
+  },
+  {
+    "code": "PUS",
+    "name": "Busan",
+    "normalizedName": "Busan",
+    "airport": "Sân bay Busan",
+    "type": "night",
+    "shortName": "Busan",
+    "category_name": "korea",
+    "timezone": "+0900"
+  },
+  {
+    "normalizedName": "Cao Hung",
+    "airport": "Sân bay Cao Hùng Đài Loan",
+    "type": "night",
+    "code": "KHH",
+    "name": "Cao Hùng",
+    "shortName": "C.Hung",
+    "category_name": "cao-hung-taiwan",
+    "timezone": "+0800"
+  },
+  {
+    "normalizedName": "Japan Kansai",
+    "airport": "Sân bay quốc tế Kansai",
+    "type": "night",
+    "code": "KIX",
+    "name": "Japan Kansai",
+    "shortName": "Kansai",
+    "category_name": "japan",
+    "timezone": "+0900"
+  },
+  {
+    "normalizedName": "Đài Chung",
+    "airport": "Sân bay quốc tế Đài Chung",
+    "type": "night",
+    "code": "RMQ",
+    "name": "Đài Chung",
+    "shortName": "Đài Chung",
+    "category_name": "taiwan",
+    "timezone": "+0800"
+  },
+  {
+    "normalizedName": "Đài Nam",
+    "airport": "Sân bay quốc tế Đài Nam",
+    "type": "night",
+    "code": "TNN",
+    "name": "Đài Nam",
+    "shortName": "Đài Nam",
+    "category_name": "taiwan",
+    "timezone": "+0800"
+  },
+  {
+    "airport": "Sân bay Vân Đồn - Quảng Ninh",
+    "type": "day",
+    "code": "VDO",
+    "name": "Vân Đồn",
+    "normalizedName": "Van Don",
+    "shortName": "V.Đồn",
+    "category_name": "vandon",
+    "timezone": "+0700"
+  }
+]

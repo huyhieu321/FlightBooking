@@ -17,9 +17,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hackathon.filighbooking.dialog.SearchPlaceDialog;
+import com.hackathon.filighbooking.model.entity.Airport;
 import com.hackathon.filighbooking.model.entity.Flight;
 import com.hackathon.filighbooking.model.entity.TripModel;
-import com.hackathon.filighbooking.presenter.TripModelPresenter;
 import com.hackathon.filighbooking.networking.APIService;
 import com.hackathon.filighbooking.networking.APIUtils;
 import com.hackathon.filighbooking.R;
@@ -27,12 +27,14 @@ import com.hackathon.filighbooking.R;
 import org.billthefarmer.view.CustomCalendarDialog.OnDateSetListener;
 import org.billthefarmer.view.CustomCalendarView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements MainView,OnCheckedChangeListener,View.OnClickListener,OnDateSetListener {
-    LinearLayout mDestinationDayLayout,mDestinationDayLayoutDisabled;
+    LinearLayout mReturnDayLayout, mReturnDayLayoutDisabled, mDepartureDayLayout;
     CheckBox mReturnTripCheckBox;
     TextView txtOriginPlace,txtDestinationPlace, txtOriginDate, txtOriginMonth,txtOriginYear,
             txtDestinationDate,txtDestinationMonth,txtDestinationYear,
@@ -85,12 +87,12 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if(!isChecked){
-            mDestinationDayLayout.setVisibility(View.GONE);
-            mDestinationDayLayoutDisabled.setVisibility(View.VISIBLE);
+            mReturnDayLayout.setVisibility(View.GONE);
+            mReturnDayLayoutDisabled.setVisibility(View.VISIBLE);
         }
         else {
-            mDestinationDayLayoutDisabled.setVisibility(View.GONE);
-            mDestinationDayLayout.setVisibility(View.VISIBLE);
+            mReturnDayLayoutDisabled.setVisibility(View.GONE);
+            mReturnDayLayout.setVisibility(View.VISIBLE);
         }
     }
 
@@ -112,6 +114,12 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
                 ChooseFlightActivity.open(MainActivity.this,mTripModel);
             }
         }
+        if(v.equals(mReturnDayLayout)){
+
+        }
+        if (v.equals(mDepartureDayLayout)){
+
+        }
     }
 
     private void initToolbar(){
@@ -132,8 +140,9 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
         txtDestinationPlace = findViewById(R.id.txtDestinationPlace);
 
         //Date box
-        mDestinationDayLayout = findViewById(R.id.mDestinationDayLayout);
-        mDestinationDayLayoutDisabled = findViewById(R.id.mDestinationDayLayoutDisabled);
+        mDepartureDayLayout = findViewById(R.id.mDepartureDayLayout);
+        mReturnDayLayout = findViewById(R.id.mReturnDayLayout);
+        mReturnDayLayoutDisabled = findViewById(R.id.mReturnDayLayoutDisabled);
         mReturnTripCheckBox = findViewById(R.id.mReturnTripCheckbox);
 
         txtOriginDate = findViewById(R.id.txtOriginDate);
@@ -159,7 +168,8 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
         mReturnTripCheckBox.setOnCheckedChangeListener(this);
         txtOriginPlace.setOnClickListener(this);
         txtDestinationPlace.setOnClickListener(this);
-        mDestinationDayLayout.setOnClickListener(this);
+        mReturnDayLayout.setOnClickListener(this);
+        mDepartureDayLayout.setOnClickListener(this);
         btnFindFlights.setOnClickListener(this);
     }
     public void initDateDefault(){
@@ -207,5 +217,11 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
     @Override
     public void onDateSet(CustomCalendarView view, int year, int month, int date) {
 
+    }
+
+    private List<Airport> getListAirport(){
+        List<Airport> list = new ArrayList<>();
+
+        return list;
     }
 }

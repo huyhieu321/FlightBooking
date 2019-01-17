@@ -1,0 +1,1257 @@
+{
+  "SGN": [
+    {
+      "duration": "1h45m",
+      "position": "top",
+      "rank": 2,
+      "code": "HAN",
+      "distance": "1.700km"
+    },
+    {
+      "rank": 2,
+      "code": "DAD",
+      "distance": "800km",
+      "duration": "1h",
+      "position": "top"
+    },
+    {
+      "code": "BKK",
+      "distance": "1100km",
+      "duration": "1h15m",
+      "position": "top",
+      "rank": 1
+    },
+    {
+      "distance": "1100km",
+      "duration": "1h15m",
+      "position": "top",
+      "rank": 1,
+      "code": "SIN"
+    },
+    {
+      "duration": "1h15m",
+      "position": "top",
+      "rank": 1,
+      "code": "HUI",
+      "distance": "1100km"
+    },
+    {
+      "rank": 1,
+      "code": "VII",
+      "distance": "1100km",
+      "duration": "1h15m",
+      "position": "top"
+    },
+    {
+      "code": "HPH",
+      "distance": "600km",
+      "duration": "45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "distance": "600km",
+      "duration": "45m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "CXR"
+    },
+    {
+      "duration": "1h15m",
+      "position": "top",
+      "rank": 1,
+      "code": "PQC",
+      "distance": "1100km"
+    },
+    {
+      "rank": 1,
+      "code": "DLI",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom"
+    },
+    {
+      "code": "BMV",
+      "distance": "400km",
+      "duration": "45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "UIH",
+      "distance": "400km",
+      "duration": "45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "CAH",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "PXU",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "TBB",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "rank": 1,
+      "code": "THD",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom"
+    },
+    {
+      "code": "VCL",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "VCS"
+    },
+    {
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "VDH",
+      "distance": "1.700km"
+    },
+    {
+      "rank": 1,
+      "code": "VKG",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom"
+    },
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "RGN",
+      "distance": "3.000km"
+    },
+    {
+      "duration": "5h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "ICN",
+      "distance": "5.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "KUL",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "TPE",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "HKG",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "KHH",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "REP",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "KIX",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "HKT",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "RMQ",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "TNN",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "VDO",
+      "distance": "2.000km"
+    }
+  ],
+  "HAN": [
+    {
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "top",
+      "rank": 2
+    },
+    {
+      "code": "DAD",
+      "distance": "1000km",
+      "duration": "1h15m",
+      "position": "top",
+      "rank": 2
+    },
+    {
+      "duration": "1h",
+      "position": "bottom",
+      "rank": 1,
+      "code": "BKK",
+      "distance": "700km"
+    },
+    {
+      "rank": 1,
+      "code": "SIN",
+      "distance": "700km",
+      "duration": "1h",
+      "position": "bottom"
+    },
+    {
+      "code": "HUI",
+      "distance": "700km",
+      "duration": "1h",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "CXR",
+      "distance": "1.800km",
+      "duration": "2h15m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "BMV",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "DIN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "DLI"
+    },
+    {
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "PQC",
+      "distance": "1.700km"
+    },
+    {
+      "position": "bottom",
+      "rank": 1,
+      "code": "PXU",
+      "distance": "1.700km",
+      "duration": "1h45m"
+    },
+    {
+      "code": "TBB",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "position": "bottom",
+      "rank": 1,
+      "code": "UIH",
+      "distance": "1.700km",
+      "duration": "1h45m"
+    },
+    {
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "VCA"
+    },
+    {
+      "code": "VCL",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "VDH",
+      "distance": "1.700km"
+    },
+    {
+      "position": "bottom",
+      "rank": 1,
+      "code": "VII",
+      "distance": "1.700km",
+      "duration": "1h45m"
+    },
+    {
+      "duration": "3h10m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "REP",
+      "distance": "3.000km"
+    },
+    {
+      "duration": "5h10m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "ICN",
+      "distance": "5.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "TPE",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "PUS",
+      "distance": "3.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "KUL",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "RGN",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "KHH",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "KIX",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "RMQ",
+      "distance": "2.000km"
+    }
+  ],
+  "DAD": [
+    {
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "top",
+      "rank": 2,
+      "code": "HAN"
+    },
+    {
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "HPH",
+      "distance": "800km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "PQC",
+      "distance": "800km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "BMV",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "DLI",
+      "distance": "1.700km"
+    },
+    {
+      "position": "bottom",
+      "rank": 1,
+      "code": "CXR",
+      "distance": "1.700km",
+      "duration": "1h45m"
+    },
+    {
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "PXU"
+    },
+    {
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "VII",
+      "distance": "1.700km"
+    },
+    {
+      "rank": 1,
+      "code": "VCA",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom"
+    },
+    {
+      "rank": 1,
+      "code": "BKK",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom"
+    },
+    {
+      "rank": 1,
+      "code": "ICN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom"
+    }
+  ],
+  "CXR": [
+    {
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "top",
+      "rank": 2,
+      "code": "HAN"
+    },
+    {
+      "code": "DAD",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "HUI",
+      "distance": "800km",
+      "duration": "1h",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "DLI",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "HPH",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "VII",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "THD",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    }
+  ],
+  "PQC": [
+    {
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2,
+      "code": "SGN",
+      "distance": "1.700km"
+    },
+    {
+      "rank": 2,
+      "code": "HAN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom"
+    },
+    {
+      "code": "DAD",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "VCA",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "VKG",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "HPH",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    }
+  ],
+  "THD": [
+    {
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "rank": 2,
+      "code": "BMV",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom"
+    },
+    {
+      "code": "CXR",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    }
+  ],
+  "VDH": [
+    {
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "HAN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "BMV",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    }
+  ],
+  "VII": [
+    {
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "position": "bottom",
+      "rank": 2,
+      "code": "HAN",
+      "distance": "1.700km",
+      "duration": "1h45m"
+    },
+    {
+      "code": "DLI",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "rank": 1,
+      "code": "DAD",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom"
+    },
+    {
+      "code": "BMV",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "THD",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "CXR",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "PXU",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    }
+  ],
+  "VKG": [
+    {
+      "position": "bottom",
+      "rank": 2,
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m"
+    },
+    {
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2,
+      "code": "PQC"
+    }
+  ],
+  "HPH": [
+    {
+      "code": "SGN",
+      "distance": "1.100km",
+      "duration": "1h15m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "CXR",
+      "distance": "1.100km",
+      "duration": "1h15m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "DAD",
+      "distance": "800km",
+      "duration": "1h",
+      "position": "top",
+      "rank": 2
+    },
+    {
+      "code": "BMV",
+      "distance": "800km",
+      "duration": "1h",
+      "position": "top",
+      "rank": 2
+    },
+    {
+      "code": "PXU",
+      "distance": "800km",
+      "duration": "1h",
+      "position": "top",
+      "rank": 2
+    },
+    {
+      "code": "PQC",
+      "distance": "800km",
+      "duration": "1h",
+      "position": "top",
+      "rank": 2
+    },
+    {
+      "code": "DLI",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    }
+  ],
+  "DLI": [
+    {
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2,
+      "code": "HAN",
+      "distance": "1.700km"
+    },
+    {
+      "position": "bottom",
+      "rank": 1,
+      "code": "DAD",
+      "distance": "1.700km",
+      "duration": "1h45m"
+    },
+    {
+      "code": "VII",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "HUI",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    },
+    {
+      "code": "CXR",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "HPH",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1
+    }
+  ],
+  "VCA": [
+    {
+      "rank": 2,
+      "code": "HAN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom"
+    },
+    {
+      "code": "PQC",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "DAD"
+    },
+    {
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 1,
+      "code": "VCS"
+    }
+  ],
+  "VCL": [
+    {
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2,
+      "code": "HAN",
+      "distance": "1.700km"
+    },
+    {
+      "position": "bottom",
+      "rank": 2,
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m"
+    }
+  ],
+  "VCS": [
+    {
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2,
+      "code": "SGN"
+    },
+    {
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2,
+      "code": "VCA"
+    }
+  ],
+  "CAH": [
+    {
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    }
+  ],
+  "TBB": [
+    {
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "HAN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    }
+  ],
+  "UIH": [
+    {
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "HAN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    }
+  ],
+  "HUI": [
+    {
+      "code": "SGN",
+      "distance": "1.100km",
+      "duration": "1h15m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "HAN",
+      "distance": "800km",
+      "duration": "1h",
+      "position": "top",
+      "rank": 2
+    },
+    {
+      "code": "DLI",
+      "distance": "800km",
+      "duration": "1h",
+      "position": "top",
+      "rank": 2
+    },
+    {
+      "code": "CXR",
+      "distance": "800km",
+      "duration": "1h",
+      "position": "top",
+      "rank": 2
+    }
+  ],
+  "BMV": [
+    {
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "VII",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "HAN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "DAD",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "rank": 2,
+      "code": "HPH",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom"
+    },
+    {
+      "code": "THD",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "VDH",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    }
+  ],
+  "DIN": [
+    {
+      "code": "HAN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    }
+  ],
+  "PXU": [
+    {
+      "code": "SGN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "position": "bottom",
+      "rank": 2,
+      "code": "DAD",
+      "distance": "1.700km",
+      "duration": "1h45m"
+    },
+    {
+      "code": "HAN",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "HPH",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    },
+    {
+      "code": "VII",
+      "distance": "1.700km",
+      "duration": "1h45m",
+      "position": "bottom",
+      "rank": 2
+    }
+  ],
+  "ICN": [
+    {
+      "duration": "5h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "SGN",
+      "distance": "5.000km"
+    },
+    {
+      "duration": "5h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "HAN",
+      "distance": "5.000km"
+    },
+    {
+      "duration": "5h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "DAD",
+      "distance": "5.000km"
+    }
+  ],
+  "REP": [
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "SGN",
+      "distance": "2.000km"
+    },
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "HAN",
+      "distance": "2.000km"
+    }
+  ],
+  "KUL": [
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "SGN",
+      "distance": "2.000km"
+    }
+  ],
+  "RGN": [
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "SGN",
+      "distance": "3.000km"
+    },
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "HAN",
+      "distance": "3.000km"
+    }
+  ],
+  "BKK": [
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "SGN",
+      "distance": "3.000km"
+    },
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "HAN",
+      "distance": "3.000km"
+    },
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "DAD",
+      "distance": "3.000km"
+    }
+  ],
+  "SIN": [
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "SGN",
+      "distance": "3.000km"
+    },
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "HAN",
+      "distance": "3.000km"
+    }
+  ],
+  "TPE": [
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "SGN",
+      "distance": "3.000km"
+    },
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "HAN",
+      "distance": "3.000km"
+    }
+  ],
+  "HKG": [
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "SGN",
+      "distance": "3.000km"
+    }
+  ],
+  "PUS": [
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "HAN",
+      "distance": "3.000km"
+    }
+  ],
+  "KHH": [
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "HAN",
+      "distance": "3.000km"
+    }
+  ],
+  "KIX": [
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "SGN",
+      "distance": "3.000km"
+    },
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "HAN",
+      "distance": "3.000km"
+    }
+  ],
+  "HKT": [
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "SGN",
+      "distance": "3.000km"
+    }
+  ],
+  "RMQ": [
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "SGN",
+      "distance": "3.000km"
+    },
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "HAN",
+      "distance": "3.000km"
+    }
+  ],
+  "TNN": [
+    {
+      "duration": "3h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "SGN",
+      "distance": "3.000km"
+    }
+  ],
+  "VDO": [
+    {
+      "duration": "2h10m",
+      "position": "top",
+      "rank": 1,
+      "code": "SGN",
+      "distance": "2.000km"
+    }
+  ]
+}

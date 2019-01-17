@@ -34,6 +34,7 @@
                 />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/mDepartureDayLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -78,7 +79,7 @@
 
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/mDestinationDayLayout"
+            android:id="@+id/mReturnDayLayout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -123,7 +124,7 @@
 
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/mDestinationDayLayoutDisabled"
+            android:id="@+id/mReturnDayLayoutDisabled"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
