@@ -1,7 +1,5 @@
 package com.hackathon.filighbooking.activity;
 
-import android.os.Build.VERSION_CODES;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,13 +14,14 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.hackathon.filighbooking.airportList.AirportPresenter;
+import com.hackathon.filighbooking.airportList.AirportView;
 import com.hackathon.filighbooking.dialog.SearchPlaceDialog;
 import com.hackathon.filighbooking.model.entity.Airport;
 import com.hackathon.filighbooking.model.entity.Flight;
 import com.hackathon.filighbooking.model.entity.TripModel;
-import com.hackathon.filighbooking.networking.APIService;
-import com.hackathon.filighbooking.networking.APIUtils;
 import com.hackathon.filighbooking.R;
+import com.hackathon.filighbooking.presenter.TripModelPresenter;
 
 import org.billthefarmer.view.CustomCalendarDialog.OnDateSetListener;
 import org.billthefarmer.view.CustomCalendarView;
@@ -33,24 +32,16 @@ import java.util.Date;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements MainView,OnCheckedChangeListener,View.OnClickListener,OnDateSetListener {
+public class MainActivity extends AppCompatActivity implements AirportView,OnCheckedChangeListener,View.OnClickListener,OnDateSetListener {
     LinearLayout mReturnDayLayout, mReturnDayLayoutDisabled, mDepartureDayLayout;
     CheckBox mReturnTripCheckBox;
     TextView txtOriginPlace,txtDestinationPlace, txtOriginDate, txtOriginMonth,txtOriginYear,
             txtDestinationDate,txtDestinationMonth,txtDestinationYear,
             txtDestinationDateDisable,txtDestinationMonthDisable,txtDestinationYearDisable;
-    APIService mApiService;
     Button btnFindFlights;
-
     TripModel mTripModel;
-
-
-
-
-    @RequiresApi(api = VERSION_CODES.LOLLIPOP)
-    @Override
-
-
+    AirportPresenter presenter;
+    SearchPlaceDialog searchPlaceDialog,searchPlaceDialog1;
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -66,13 +57,12 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
         mTripModel = new TripModel("TBB","HAN",departureDate,returnDate,false,2);
 
         /*********/
-        mApiService = APIUtils.getAPIService();
-       // final TripModelPresenter presenter = new TripModelPresenter(this);
-
+        presenter = new AirportPresenter(this);
+        presenter.getListAirtport();
 //        CustomCalendarDialog dialog = new CustomCalendarDialog(this,this,2019,1,16);
-//        CustomCalendarView calendarView = dialog.getCalendarView();
-//
-//        dialog.show();
+////        CustomCalendarView calendarView = dialog.getCalendarView();
+////
+////        dialog.show();
 
     }
     @Override
@@ -80,10 +70,6 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
         super.onBackPressed();
     }
 
-    @Override
-    public void displayFlight(Flight flight) {
-        Log.i("Result",flight.getOriginCode() + " " + flight.getDestinationCode());
-    }
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if(!isChecked){
@@ -101,13 +87,15 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
 
         if(v.equals(txtOriginPlace)){
             FragmentManager fragmentManager = getSupportFragmentManager();
-            SearchPlaceDialog searchPlaceDialog = new SearchPlaceDialog(getString(R.string.outward_leg));
+//            SearchPlaceDialog searchPlaceDialog = new SearchPlaceDialog(getString(R.string.outward_leg));
             searchPlaceDialog.show(fragmentManager,null);
         }
         if(v.equals(txtDestinationPlace)){
             FragmentManager fragmentManager = getSupportFragmentManager();
-            SearchPlaceDialog searchPlaceDialog = new SearchPlaceDialog(getString(R.string.return_leg));
-            searchPlaceDialog.show(fragmentManager,null);
+//            SearchPlaceDialog searchPlaceDialog = new SearchPlaceDialog(getString(R.string.return_leg));
+            presenter.setAirportArrivalCode("TBB");
+            searchPlaceDialog1.show(fragmentManager,null);
+
         }
         if (v.equals(btnFindFlights)){
             if(mTripModel!=null){
@@ -223,5 +211,16 @@ public class MainActivity extends AppCompatActivity implements MainView,OnChecke
         List<Airport> list = new ArrayList<>();
 
         return list;
+    }
+
+    @Override
+    public void displayListDeparture(ArrayList<Airport> pListDeparture) {
+        searchPlaceDialog = new SearchPlaceDialog("Luot di", pListDeparture);
+
+    }
+
+    @Override
+    public void displayListArrival(ArrayList<Airport> pListArrival) {
+        searchPlaceDialog1 = new SearchPlaceDialog("Luot ve", pListArrival);
     }
 }

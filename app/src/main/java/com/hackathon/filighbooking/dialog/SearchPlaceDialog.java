@@ -15,13 +15,19 @@ import android.view.ViewGroup.LayoutParams;
 
 import com.hackathon.filighbooking.R;
 import com.hackathon.filighbooking.adapter.AirportAdapter;
+import com.hackathon.filighbooking.model.entity.Airport;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SuppressLint("ValidFragment")
 public class SearchPlaceDialog extends DialogFragment{
     RecyclerView recyclerAirports;
     String mTitle;
-    public SearchPlaceDialog(String pTitle){
+    ArrayList<Airport> mListAirports;
+    public SearchPlaceDialog(String pTitle, ArrayList<Airport> pListAirports){
         this.mTitle = pTitle;
+        this.mListAirports = pListAirports;
     }
     @Nullable
     @Override
@@ -33,7 +39,7 @@ public class SearchPlaceDialog extends DialogFragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerAirports = view.findViewById(R.id.recyclerAirportList);
-        AirportAdapter airportAdapter = new AirportAdapter(null,mTitle);
+        AirportAdapter airportAdapter = new AirportAdapter(mListAirports,mTitle);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerAirports.setLayoutManager(linearLayoutManager);
         recyclerAirports.setAdapter(airportAdapter);

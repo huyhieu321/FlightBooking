@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.hackathon.filighbooking.R;
 import com.hackathon.filighbooking.adapter.AirportAdapter.AirportViewHolder;
+import com.hackathon.filighbooking.model.entity.Airport;
 
 import java.util.ArrayList;
 
@@ -17,28 +18,30 @@ public class AirportAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
-    ArrayList<String> mListAirports;
+    ArrayList<Airport> mListAirports;
     String mTitle;
     int isHeader =1;
 
-    public AirportAdapter(ArrayList<String> pListAirports,String pTitle){
+    public AirportAdapter(ArrayList<Airport> pListAirports,String pTitle){
         this.mListAirports = pListAirports;
         this.mTitle = pTitle;
     }
     public static class AirportViewHolder extends ViewHolder {
-
+        TextView txtPlaceName;
         public AirportViewHolder(@NonNull View itemView) {
             super(itemView);
 
             // Define
+            txtPlaceName = itemView.findViewById(R.id.txtPlaceName);
+
         }
     }
     public static  class HeaderAirportViewHolder extends  ViewHolder{
-
+        TextView txtSearchTitle;
         public HeaderAirportViewHolder(@NonNull View itemView) {
             super(itemView);
             // Define
-            TextView txtSearchTitle = itemView.findViewById(R.id.txtSearchTitle);
+           txtSearchTitle  = itemView.findViewById(R.id.txtSearchTitle);
         }
     }
 
@@ -60,18 +63,17 @@ public class AirportAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         // bind
         if (holder instanceof HeaderAirportViewHolder){
-
+            ((HeaderAirportViewHolder) holder).txtSearchTitle.setText(mTitle);
         }
         if(holder instanceof AirportViewHolder){
-
+            String placeName = mListAirports.get(position-isHeader).getName();
+            ((AirportViewHolder) holder).txtPlaceName.setText(placeName);
         }
     }
 
     @Override
     public int getItemCount() {
-        //return mListAirports.size();
-
-        return 4 +isHeader;
+        return mListAirports.size() +isHeader;
     }
 
     @Override
