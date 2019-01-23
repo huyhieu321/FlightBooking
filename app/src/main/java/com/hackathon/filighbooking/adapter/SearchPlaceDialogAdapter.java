@@ -3,30 +3,37 @@ package com.hackathon.filighbooking.adapter;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hackathon.filighbooking.R;
-import com.hackathon.filighbooking.adapter.AirportAdapter.AirportViewHolder;
 import com.hackathon.filighbooking.model.entity.Airport;
 
 import java.util.ArrayList;
 
-public class AirportAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class SearchPlaceDialogAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
     ArrayList<Airport> mListAirports;
     String mTitle;
     int isHeader =1;
+    SearchPlaceDialogAdapterClickListener mSearchDialogOnItemClick;
 
-    public AirportAdapter(ArrayList<Airport> pListAirports,String pTitle){
+    public SearchPlaceDialogAdapter(ArrayList<Airport> pListAirports, String pTitle){
         this.mListAirports = pListAirports;
         this.mTitle = pTitle;
     }
-    public static class AirportViewHolder extends ViewHolder {
+
+    public  void setOnItemClickListener(SearchPlaceDialogAdapterClickListener pSearchDialogOnItemClick){
+        this.mSearchDialogOnItemClick = pSearchDialogOnItemClick;
+    }
+
+    public static class AirportViewHolder extends ViewHolder  {
         TextView txtPlaceName;
         public AirportViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,6 +75,15 @@ public class AirportAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         if(holder instanceof AirportViewHolder){
             String placeName = mListAirports.get(position-isHeader).getName();
             ((AirportViewHolder) holder).txtPlaceName.setText(placeName);
+            holder.itemView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if( mSearchDialogOnItemClick !=null){
+                        mSearchDialogOnItemClick.onClickItemListener(mListAirports.get(position-isHeader));
+                        Log.i("ItemCLick",mListAirports.get(position-isHeader).getName());
+                    }
+                }
+            });
         }
     }
 

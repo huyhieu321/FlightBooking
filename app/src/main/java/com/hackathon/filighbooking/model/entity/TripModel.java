@@ -5,8 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 public class TripModel implements Serializable{
-    private String originPlaceID;
-    private String destinationPlaceID;
+    private Airport originAirport;
+    private Airport destinationAirport;
     private Date departureDay;
     private Date returnDay;
     private Flight flightOutward;
@@ -14,9 +14,9 @@ public class TripModel implements Serializable{
     private boolean isReturnFlight;
     private int numOfPassenger;
 
-    public TripModel(String originPlaceID, String destinationPlaceID, Date departureDay, Date returnDay, boolean isReturnFlight, int numOfPassenger) {
-        this.originPlaceID = originPlaceID;
-        this.destinationPlaceID = destinationPlaceID;
+    public TripModel(Airport originAirport, Airport destinationAirport , Date departureDay, Date returnDay, boolean isReturnFlight, int numOfPassenger) {
+        this.originAirport = originAirport;
+        this.destinationAirport = destinationAirport;
         this.departureDay = departureDay;
         this.returnDay = returnDay;
         this.isReturnFlight = isReturnFlight;
@@ -39,20 +39,20 @@ public class TripModel implements Serializable{
         this.flightReturn = flightReturn;
     }
 
-    public String getOriginPlaceID() {
-        return originPlaceID;
+    public Airport getOriginPlaceID() {
+        return originAirport;
     }
 
-    public void setOriginPlaceID(String originPlaceID) {
-        this.originPlaceID = originPlaceID;
+    public void setOriginPlaceID(Airport originAirport) {
+        this.originAirport = originAirport;
     }
 
-    public String getDestinationPlaceID() {
-        return destinationPlaceID;
+    public Airport getDestinationPlaceID() {
+        return destinationAirport;
     }
 
-    public void setDestinationPlaceID(String destinationPlaceID) {
-        this.destinationPlaceID = destinationPlaceID;
+    public void setDestinationPlaceID(Airport destinationAirport) {
+        this.destinationAirport = destinationAirport;
     }
 
     public boolean isReturnFlight() {

@@ -16,7 +16,7 @@ public class AirportPresenter implements AirportListener{
     public void setAirportArrivalCode(String pAirportArrivalCode){
         mInterator.getListAirportRoute(pAirportArrivalCode);
     }
-    public void getListAirtport(){
+    public void getListAirport(){
         mInterator.getListAirport();
     }
     @Override

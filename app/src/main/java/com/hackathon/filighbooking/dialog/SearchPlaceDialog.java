@@ -14,20 +14,26 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 
 import com.hackathon.filighbooking.R;
-import com.hackathon.filighbooking.adapter.AirportAdapter;
+import com.hackathon.filighbooking.adapter.SearchPlaceDialogAdapter;
+import com.hackathon.filighbooking.adapter.SearchPlaceDialogAdapterClickListener;
 import com.hackathon.filighbooking.model.entity.Airport;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 @SuppressLint("ValidFragment")
-public class SearchPlaceDialog extends DialogFragment{
+public class SearchPlaceDialog extends DialogFragment implements SearchPlaceDialogAdapterClickListener {
     RecyclerView recyclerAirports;
     String mTitle;
     ArrayList<Airport> mListAirports;
+    SearchPlaceDialogListener mSearchPlaceDialogListener;
     public SearchPlaceDialog(String pTitle, ArrayList<Airport> pListAirports){
         this.mTitle = pTitle;
         this.mListAirports = pListAirports;
+    }
+
+    public void setListener(SearchPlaceDialogListener pSearchPlaceDialogListener){
+        this.mSearchPlaceDialogListener = pSearchPlaceDialogListener;
     }
     @Nullable
     @Override
@@ -39,10 +45,12 @@ public class SearchPlaceDialog extends DialogFragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerAirports = view.findViewById(R.id.recyclerAirportList);
-        AirportAdapter airportAdapter = new AirportAdapter(mListAirports,mTitle);
+        SearchPlaceDialogAdapter airportAdapter = new SearchPlaceDialogAdapter(mListAirports,mTitle);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerAirports.setLayoutManager(linearLayoutManager);
         recyclerAirports.setAdapter(airportAdapter);
+        airportAdapter.setOnItemClickListener(this);
+
     }
 
     @Override
@@ -55,5 +63,11 @@ public class SearchPlaceDialog extends DialogFragment{
             int height = LayoutParams.WRAP_CONTENT;
             dialog.getWindow().setLayout(width, height);
         }
+    }
+
+    @Override
+    public void onClickItemListener(Airport airport) {
+        mSearchPlaceDialogListener.getAirport(airport);
+
     }
 }

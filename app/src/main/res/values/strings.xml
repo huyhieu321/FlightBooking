@@ -11,4 +11,8 @@
     <string name="month">Tháng </string>
     <string name="originPlaceTitle">Điểm đi</string>
     <string name="destinationPlaceTitle">Điểm đến</string>
+
+    <!--Main Activity String -->
+    <string name="main_outward_leg">Lượt đi</string>
+    <string name="main_return_leg">Lượt về</string>
 </resources>

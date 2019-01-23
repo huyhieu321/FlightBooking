@@ -17,11 +17,10 @@ import android.widget.TextView;
 import com.hackathon.filighbooking.airportList.AirportPresenter;
 import com.hackathon.filighbooking.airportList.AirportView;
 import com.hackathon.filighbooking.dialog.SearchPlaceDialog;
+import com.hackathon.filighbooking.dialog.SearchPlaceDialogListener;
 import com.hackathon.filighbooking.model.entity.Airport;
-import com.hackathon.filighbooking.model.entity.Flight;
 import com.hackathon.filighbooking.model.entity.TripModel;
 import com.hackathon.filighbooking.R;
-import com.hackathon.filighbooking.presenter.TripModelPresenter;
 
 import org.billthefarmer.view.CustomCalendarDialog.OnDateSetListener;
 import org.billthefarmer.view.CustomCalendarView;
@@ -29,7 +28,6 @@ import org.billthefarmer.view.CustomCalendarView;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements AirportView,OnCheckedChangeListener,View.OnClickListener,OnDateSetListener {
@@ -54,11 +52,11 @@ public class MainActivity extends AppCompatActivity implements AirportView,OnChe
         Date departureDate = calendar.getTime();
         calendar.add(Calendar.DAY_OF_MONTH,2);
         Date returnDate = calendar.getTime();
-        mTripModel = new TripModel("TBB","HAN",departureDate,returnDate,false,2);
+        //mTripModel = new TripModel("TBB","HAN",departureDate,returnDate,false,2);
 
         /*********/
         presenter = new AirportPresenter(this);
-        presenter.getListAirtport();
+        presenter.getListAirport();
 //        CustomCalendarDialog dialog = new CustomCalendarDialog(this,this,2019,1,16);
 ////        CustomCalendarView calendarView = dialog.getCalendarView();
 ////
@@ -93,7 +91,6 @@ public class MainActivity extends AppCompatActivity implements AirportView,OnChe
         if(v.equals(txtDestinationPlace)){
             FragmentManager fragmentManager = getSupportFragmentManager();
 //            SearchPlaceDialog searchPlaceDialog = new SearchPlaceDialog(getString(R.string.return_leg));
-            presenter.setAirportArrivalCode("TBB");
             searchPlaceDialog1.show(fragmentManager,null);
 
         }
@@ -207,20 +204,34 @@ public class MainActivity extends AppCompatActivity implements AirportView,OnChe
 
     }
 
-    private List<Airport> getListAirport(){
-        List<Airport> list = new ArrayList<>();
-
-        return list;
-    }
-
     @Override
     public void displayListDeparture(ArrayList<Airport> pListDeparture) {
-        searchPlaceDialog = new SearchPlaceDialog("Luot di", pListDeparture);
+        txtOriginPlace.setText(pListDeparture.get(0).getName());
+        searchPlaceDialog = new SearchPlaceDialog(getString(R.string.main_outward_leg), pListDeparture);
+        searchPlaceDialog.setListener(new SearchPlaceDialogListener() {
+            @Override
+            public void getAirport(Airport airport) {
+                Log.i("Result",airport.getName());
+                txtOriginPlace.setText(airport.getName());
+                presenter.setAirportArrivalCode(airport.getCode());
+                searchPlaceDialog.dismiss();
+            }
+        });
 
     }
 
     @Override
     public void displayListArrival(ArrayList<Airport> pListArrival) {
-        searchPlaceDialog1 = new SearchPlaceDialog("Luot ve", pListArrival);
+        searchPlaceDialog1 = new SearchPlaceDialog(getString(R.string.main_return_leg), pListArrival);
+        searchPlaceDialog1.setListener(new SearchPlaceDialogListener() {
+            @Override
+            public void getAirport(Airport airport) {
+                Log.i("Luot ve: ", airport.getName());
+                txtDestinationPlace.setText(airport.getName());
+                searchPlaceDialog1.dismiss();
+            }
+        });
     }
+
+
 }

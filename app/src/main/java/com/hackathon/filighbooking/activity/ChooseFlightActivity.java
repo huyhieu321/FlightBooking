@@ -62,8 +62,8 @@ public class ChooseFlightActivity extends AppCompatActivity {
         Intent intent = getIntent();
         TripModel mTripModel = (TripModel) intent.getSerializableExtra("trip_model");
         isReturnTrip = mTripModel.isReturnFlight();
-        originID = mTripModel.getOriginPlaceID();
-        destinationID = mTripModel.getDestinationPlaceID();
+        //originID = mTripModel.getOriginPlaceID();
+        //destinationID = mTripModel.getDestinationPlaceID();
         departureDate = mTripModel.getDepartureDay();
         returnDate = mTripModel.getReturnDay();
         numOfPassenger = mTripModel.getNumOfPassenger();

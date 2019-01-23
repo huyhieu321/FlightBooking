@@ -3,8 +3,8 @@
     "airport": "Sân bay quốc tế Tân Sơn Nhất",
     "type": "night",
     "code": "SGN",
-    "name": "Tp. Hồ Chí Minh",
-    "normalizedName": "Tp. Ho Chi Minh",
+    "name": "Hồ Chí Minh",
+    "normalizedName": "Ho Chi Minh",
     "shortName": "TP.HCM",
     "category_name": "hochiminh",
     "timezone": "+0700"
