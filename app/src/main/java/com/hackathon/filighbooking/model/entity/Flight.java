@@ -1,7 +1,6 @@
 package com.hackathon.filighbooking.model.entity;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -9,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 
-public class Flight implements Serializable,Parcelable {
+public class Flight implements Serializable {
     @SerializedName("cheapestClass")
     @Expose
     private String cheapestClass;
@@ -44,9 +43,6 @@ public class Flight implements Serializable,Parcelable {
     @Expose
     private List<PriceList> priceList = null;
 
-    public Flight(Parcel in) {
-
-    }
     public Flight(){}
 
     public String getCheapestClass() {
@@ -137,30 +133,4 @@ public class Flight implements Serializable,Parcelable {
         this.priceList = priceList;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
-    }
-
-    public static final Parcelable.Creator<Flight> CREATOR
-            = new Parcelable.Creator<Flight>() {
-
-        // This simply calls our new constructor (typically private) and
-        // passes along the unmarshalled `Parcel`, and then returns the new object!
-        @Override
-        public Flight createFromParcel(Parcel in) {
-            return new Flight(in);
-        }
-
-        // We just need to copy this and change the type to match our class.
-        @Override
-        public Flight[] newArray(int size) {
-            return new Flight[size];
-        }
-    };
 }

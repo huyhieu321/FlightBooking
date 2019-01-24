@@ -3,9 +3,10 @@ package com.hackathon.filighbooking.model.entity;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PriceList {
+public class PriceList implements Serializable {
     @SerializedName("priceTotal")
     @Expose
     private Integer priceTotal;

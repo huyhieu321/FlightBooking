@@ -3,7 +3,9 @@ package com.hackathon.filighbooking.model.entity;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Airport {
+import java.io.Serializable;
+
+public class Airport implements Serializable {
 
     @SerializedName("airport")
     @Expose
@@ -93,4 +95,5 @@ public class Airport {
     public void setTimezone(String timezone) {
         this.timezone = timezone;
     }
+
 }

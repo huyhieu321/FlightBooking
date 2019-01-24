@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements AirportView,OnChe
     TripModel mTripModel;
     AirportPresenter presenter;
     SearchPlaceDialog searchPlaceDialog,searchPlaceDialog1;
+
+    boolean flag = false;
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -53,7 +55,9 @@ public class MainActivity extends AppCompatActivity implements AirportView,OnChe
         calendar.add(Calendar.DAY_OF_MONTH,2);
         Date returnDate = calendar.getTime();
         //mTripModel = new TripModel("TBB","HAN",departureDate,returnDate,false,2);
-
+        mTripModel = new TripModel();
+        mTripModel.setDepartureDay(departureDate);
+        mTripModel.setReturnFlight(false);
         /*********/
         presenter = new AirportPresenter(this);
         presenter.getListAirport();
@@ -85,12 +89,18 @@ public class MainActivity extends AppCompatActivity implements AirportView,OnChe
 
         if(v.equals(txtOriginPlace)){
             FragmentManager fragmentManager = getSupportFragmentManager();
-//            SearchPlaceDialog searchPlaceDialog = new SearchPlaceDialog(getString(R.string.outward_leg));
             searchPlaceDialog.show(fragmentManager,null);
+            flag = true;
         }
         if(v.equals(txtDestinationPlace)){
+//            if(flag == true){
+//                FragmentManager fragmentManager = getSupportFragmentManager();
+//                searchPlaceDialog1.show(fragmentManager,null);
+//            }
+//            else{
+//                Toast.makeText(this,"chon diem den",Toast.LENGTH_SHORT).show();
+//            }
             FragmentManager fragmentManager = getSupportFragmentManager();
-//            SearchPlaceDialog searchPlaceDialog = new SearchPlaceDialog(getString(R.string.return_leg));
             searchPlaceDialog1.show(fragmentManager,null);
 
         }
@@ -207,11 +217,13 @@ public class MainActivity extends AppCompatActivity implements AirportView,OnChe
     @Override
     public void displayListDeparture(ArrayList<Airport> pListDeparture) {
         txtOriginPlace.setText(pListDeparture.get(0).getName());
+        mTripModel.setDepartureAirport(pListDeparture.get(0));
         searchPlaceDialog = new SearchPlaceDialog(getString(R.string.main_outward_leg), pListDeparture);
         searchPlaceDialog.setListener(new SearchPlaceDialogListener() {
             @Override
             public void getAirport(Airport airport) {
                 Log.i("Result",airport.getName());
+                mTripModel.setDepartureAirport(airport);
                 txtOriginPlace.setText(airport.getName());
                 presenter.setAirportArrivalCode(airport.getCode());
                 searchPlaceDialog.dismiss();
@@ -222,10 +234,13 @@ public class MainActivity extends AppCompatActivity implements AirportView,OnChe
 
     @Override
     public void displayListArrival(ArrayList<Airport> pListArrival) {
+        txtDestinationPlace.setText(pListArrival.get(1).getName());
+        mTripModel.setArrivalAirport(pListArrival.get(1));
         searchPlaceDialog1 = new SearchPlaceDialog(getString(R.string.main_return_leg), pListArrival);
         searchPlaceDialog1.setListener(new SearchPlaceDialogListener() {
             @Override
             public void getAirport(Airport airport) {
+                mTripModel.setArrivalAirport(airport);
                 Log.i("Luot ve: ", airport.getName());
                 txtDestinationPlace.setText(airport.getName());
                 searchPlaceDialog1.dismiss();

@@ -23,6 +23,9 @@ public class TripModel implements Serializable{
         this.numOfPassenger = numOfPassenger;
     }
 
+    public TripModel() {
+    }
+
     public Flight getFlightOutward() {
         return flightOutward;
     }
@@ -39,19 +42,19 @@ public class TripModel implements Serializable{
         this.flightReturn = flightReturn;
     }
 
-    public Airport getOriginPlaceID() {
+    public Airport getDepartureAirport() {
         return originAirport;
     }
 
-    public void setOriginPlaceID(Airport originAirport) {
+    public void setDepartureAirport(Airport originAirport) {
         this.originAirport = originAirport;
     }
 
-    public Airport getDestinationPlaceID() {
+    public Airport getArrivalAirport() {
         return destinationAirport;
     }
 
-    public void setDestinationPlaceID(Airport destinationAirport) {
+    public void setArrivalAirport(Airport destinationAirport) {
         this.destinationAirport = destinationAirport;
     }
 

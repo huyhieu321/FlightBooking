@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.hackathon.filighbooking.R;
 import com.hackathon.filighbooking.adapter.ChooseFlightTabHostAdapter;
+import com.hackathon.filighbooking.adapter.ChooseFlightTabHostListener;
+import com.hackathon.filighbooking.fragment.FragmentOutwardLegListener;
 import com.hackathon.filighbooking.model.entity.Flight;
 import com.hackathon.filighbooking.model.entity.TripModel;
 import com.hackathon.filighbooking.networking.APIService;
@@ -30,7 +32,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ChooseFlightActivity extends AppCompatActivity {
+public class ChooseFlightActivity extends AppCompatActivity implements ChooseFlightTabHostListener {
 
     ViewPager viewPager;
     TabLayout tabLayout;
@@ -38,13 +40,15 @@ public class ChooseFlightActivity extends AppCompatActivity {
     List<Flight> outwardLegListFlight, returnLegListFlight;
     ChooseFlightTabHostAdapter chooseFlightTabHostAdapter;
     Date departureDate, returnDate;
-    String destinationID, originID;
+    String arrivalAirportCode, departureAirportCode;
     int numOfPassenger;
     APIService service;
     FragmentManager fragmentManager;
     public static void open(Activity activity, TripModel pTripModel){
         Intent intent = new Intent(activity,ChooseFlightActivity.class);
-        intent.putExtra("trip_model",pTripModel);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("trip_model",pTripModel);
+        intent.putExtras(bundle);
         activity.startActivity(intent);
     }
 
@@ -62,8 +66,8 @@ public class ChooseFlightActivity extends AppCompatActivity {
         Intent intent = getIntent();
         TripModel mTripModel = (TripModel) intent.getSerializableExtra("trip_model");
         isReturnTrip = mTripModel.isReturnFlight();
-        //originID = mTripModel.getOriginPlaceID();
-        //destinationID = mTripModel.getDestinationPlaceID();
+        departureAirportCode = mTripModel.getDepartureAirport().getCode();
+        arrivalAirportCode = mTripModel.getArrivalAirport().getCode();
         departureDate = mTripModel.getDepartureDay();
         returnDate = mTripModel.getReturnDay();
         numOfPassenger = mTripModel.getNumOfPassenger();
@@ -91,33 +95,41 @@ public class ChooseFlightActivity extends AppCompatActivity {
     public String generateUrlFindFlight(Date date, String originPlaceID, String destinationPlaceID){
         String url;
 
-        String dayArrival = String.valueOf(date.getYear()+1900) + formartDateMonth(date.getMonth()+1) + formartDateMonth(date.getDate());
+        String dayArrival = String.valueOf(date.getYear()+1900) + formatDateMonth(date.getMonth()+1) + formatDateMonth(date.getDate());
 
         // pattern URL "/air/v1/search/TBB/HAN/20190117/101"
-        url = "/air/v1/search/" + originPlaceID +"/" + destinationPlaceID +"/" + dayArrival +"/100/" + "";
+        url = "/air/v1/search/" + originPlaceID +"/" + destinationPlaceID +"/" + dayArrival +"/100/";
         return url;
     }
 
     private void initView(List<Flight> list) {
         chooseFlightTabHostAdapter = new ChooseFlightTabHostAdapter(fragmentManager,list);
+        chooseFlightTabHostAdapter.setTabHostListener(this);
         viewPager.setAdapter(chooseFlightTabHostAdapter);
         tabLayout.setupWithViewPager(viewPager);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setTabsFromPagerAdapter(chooseFlightTabHostAdapter);
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
     }
-    private String formartDateMonth(int number){
+    private String formatDateMonth(int number){
         if (number<10){
             return "0"+String.valueOf(number);
         }
         else return String.valueOf(number);
     }
 
+
+    @Override
+    public void getFlightDetails(Flight flight) {
+
+//        FlightDetailsActivity.open(this,flight);
+    }
+
     private class ParseOutwardFlights extends AsyncTask<Void,Void,Void>{
         List<Flight> listOutwardFlights = new ArrayList<>();
         @Override
         protected Void doInBackground(Void... params) {
-            String urlOutwardFlights = generateUrlFindFlight(departureDate,originID,destinationID);
+            String urlOutwardFlights = generateUrlFindFlight(departureDate, departureAirportCode, arrivalAirportCode);
             service.getFlight(Constant.API_AUTH,urlOutwardFlights).enqueue(new Callback<List<Flight>>(){
                 @Override
                 public void onResponse(Call<List<Flight>> call, Response<List<Flight>> response) {

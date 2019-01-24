@@ -1,8 +1,6 @@
 package com.hackathon.filighbooking.adapter;
 
 import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,21 +10,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hackathon.filighbooking.R;
-import com.hackathon.filighbooking.activity.FlightDetailsActivity;
-import com.hackathon.filighbooking.activity.OnItemClickListener;
-import com.hackathon.filighbooking.adapter.FlightAdapter.FlightViewHolder;
+import com.hackathon.filighbooking.adapter.ChooseFlightAdapter.FlightViewHolder;
 import com.hackathon.filighbooking.model.entity.Flight;
 
 import java.util.List;
 
-public class FlightAdapter extends RecyclerView.Adapter<FlightViewHolder>  {
+public class ChooseFlightAdapter extends RecyclerView.Adapter<FlightViewHolder>  {
     List<Flight> mListFlights;
     Activity mActivity;
-    public FlightAdapter(Activity pActivity,List<Flight> pListFlights) {
+    public ChooseFlightAdapter(Activity pActivity, List<Flight> pListFlights) {
         this.mListFlights = pListFlights;
         this.mActivity = pActivity;
     }
-    OnItemClickListener listener;
+    ChooseFlightAdapterClickListener listener;
     public class FlightViewHolder extends RecyclerView.ViewHolder implements OnClickListener {
         TextView txtOriginID, txtDestinationID, txtArrivalTime, txtDepartureTime,txtFlightDuration,txtFlightPrice;
 
@@ -43,10 +39,10 @@ public class FlightAdapter extends RecyclerView.Adapter<FlightViewHolder>  {
 
         @Override
         public void onClick(View v) {
-            listener.onItemClick(itemView,getAdapterPosition());
+            listener.onItemClick(mListFlights.get(getAdapterPosition()));
         }
     }
-    public void setClickListener(OnItemClickListener itemClickListener) {
+    public void setClickListener(ChooseFlightAdapterClickListener itemClickListener) {
         this.listener = itemClickListener;
     }
 

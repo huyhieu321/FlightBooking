@@ -3,9 +3,9 @@ package com.hackathon.filighbooking.model;
 import com.hackathon.filighbooking.model.entity.Flight;
 import com.hackathon.filighbooking.model.entity.TripModel;
 
-public class TripModelInterator {
+public class TripModelIterator {
     private TripModelListener tripModelListener;
-    public TripModelInterator(TripModelListener listener){
+    public TripModelIterator(TripModelListener listener){
         this.tripModelListener = listener;
     }
     public void createFlight(String originCode,String destinationCode){

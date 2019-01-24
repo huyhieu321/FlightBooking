@@ -62,7 +62,7 @@ public class AirportIterator {
 
         /** Pass to presenter **/
         mAirportListener.getListAirportDepartureSuccess(mListDeparture);
-       // mAirportListener.getListAirportDepartureSuccess(mAllListAirport);
+        mAirportListener.getListAirportArrivalSuccess(mAllListAirport);
     }
     public void getListAirportRoute(String pAirportCode){
         if (pAirportCode != null){

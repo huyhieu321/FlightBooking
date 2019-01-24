@@ -11,29 +11,31 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.hackathon.filighbooking.R;
-import com.hackathon.filighbooking.activity.OnItemClickListener;
-import com.hackathon.filighbooking.adapter.FlightAdapter;
+import com.hackathon.filighbooking.adapter.ChooseFlightAdapterClickListener;
+import com.hackathon.filighbooking.adapter.ChooseFlightAdapter;
 import com.hackathon.filighbooking.model.entity.Flight;
 
 import java.util.List;
 
 @SuppressLint("ValidFragment")
-public class FragmentOutwardLeg extends android.support.v4.app.Fragment implements OnItemClickListener {
+public class FragmentOutwardLeg extends android.support.v4.app.Fragment implements ChooseFlightAdapterClickListener {
     RecyclerView recyclerListFlight;
-    FlightAdapter flightAdapter;
+    ChooseFlightAdapter flightAdapter;
     List<Flight> mListFlights = null;
-
+    FragmentOutwardLegListener fragmentOutwardLegListener;
     public FragmentOutwardLeg(List<Flight> pListFlights) {
         this.mListFlights = pListFlights;
     }
-
+    public void setFragmentOutwardLegListener(FragmentOutwardLegListener listener){
+        this.fragmentOutwardLegListener = listener;
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_outward_leg,container,false);
         recyclerListFlight = view.findViewById(R.id.recyclerFlightList);
 
-        flightAdapter = new FlightAdapter(getActivity(),mListFlights);
+        flightAdapter = new ChooseFlightAdapter(getActivity(),mListFlights);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerListFlight.setLayoutManager(layoutManager);
         recyclerListFlight.setAdapter(flightAdapter);
@@ -42,7 +44,7 @@ public class FragmentOutwardLeg extends android.support.v4.app.Fragment implemen
     }
 
     @Override
-    public void onItemClick(View view, int position) {
-
+    public void onItemClick(Flight flight) {
+        fragmentOutwardLegListener.getFLight(flight);
     }
 }

@@ -1,16 +1,16 @@
 package com.hackathon.filighbooking.presenter;
 
 import com.hackathon.filighbooking.activity.MainView;
-import com.hackathon.filighbooking.model.TripModelInterator;
+import com.hackathon.filighbooking.model.TripModelIterator;
 import com.hackathon.filighbooking.model.TripModelListener;
 import com.hackathon.filighbooking.model.entity.Flight;
 
 public class TripModelPresenter implements TripModelListener{
-    private TripModelInterator modelInterator;
+    private TripModelIterator modelInterator;
     private MainView mainView;
 
     public TripModelPresenter(MainView mainView) {
-        this.modelInterator = new TripModelInterator(this);
+        this.modelInterator = new TripModelIterator(this);
         this.mainView = mainView;
     }
     public void setFlight(String originCode, String destinationCode){

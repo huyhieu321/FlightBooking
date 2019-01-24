@@ -3,15 +3,17 @@ package com.hackathon.filighbooking.model.entity;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 
-public class PriceFeeList {
+
+public class PriceFeeList implements Serializable {
 
     @SerializedName("code")
     @Expose
     private String code;
     @SerializedName("fee")
     @Expose
-    private Integer fee;
+    private Double fee;
 
     public String getCode() {
         return code;
@@ -21,11 +23,11 @@ public class PriceFeeList {
         this.code = code;
     }
 
-    public Integer getFee() {
+    public Double getFee() {
         return fee;
     }
 
-    public void setFee(Integer fee) {
+    public void setFee(Double fee) {
         this.fee = fee;
     }
 }

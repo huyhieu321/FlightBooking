@@ -6,14 +6,16 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.hackathon.filighbooking.fragment.FragmentChangeDay;
 import com.hackathon.filighbooking.fragment.FragmentOutwardLeg;
+import com.hackathon.filighbooking.fragment.FragmentOutwardLegListener;
 import com.hackathon.filighbooking.fragment.FragmentReturnLeg;
 import com.hackathon.filighbooking.model.entity.Flight;
 
 import java.util.List;
 
-public class ChooseFlightTabHostAdapter extends FragmentPagerAdapter {
+public class ChooseFlightTabHostAdapter extends FragmentPagerAdapter implements FragmentOutwardLegListener {
     boolean isReturnTrip = false ;
     List<Flight> outwardListFlight, returnLegListFlights;
+    ChooseFlightTabHostListener mListener;
     public ChooseFlightTabHostAdapter(FragmentManager fm, boolean isReturnTrip,
                                       List<Flight> outwardLegListFlight, List<Flight> returnLegListFlight) {
         super(fm);
@@ -25,6 +27,10 @@ public class ChooseFlightTabHostAdapter extends FragmentPagerAdapter {
     public ChooseFlightTabHostAdapter(FragmentManager fm,List<Flight> outwardLegListFlight ) {
         super(fm);
         this.outwardListFlight = outwardLegListFlight;
+    }
+
+    public void setTabHostListener(ChooseFlightTabHostListener listener){
+        this.mListener = listener;
     }
 
     @Override
@@ -47,6 +53,7 @@ public class ChooseFlightTabHostAdapter extends FragmentPagerAdapter {
             switch (position) {
                 case 0:
                     fragment = new FragmentOutwardLeg(outwardListFlight);
+                    ((FragmentOutwardLeg) fragment).setFragmentOutwardLegListener(this);
                     break;
                 case 1:
                     fragment = new FragmentChangeDay();
@@ -90,5 +97,10 @@ public class ChooseFlightTabHostAdapter extends FragmentPagerAdapter {
             }
         }
         return title;
+    }
+
+    @Override
+    public void getFLight(Flight flight) {
+        mListener.getFlightDetails(flight);
     }
 }
