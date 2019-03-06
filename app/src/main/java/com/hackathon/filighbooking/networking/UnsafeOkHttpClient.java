@@ -1,5 +1,7 @@
 package com.hackathon.filighbooking.networking;
 
+import android.content.Context;
+
 import java.security.cert.CertificateException;
 
 import javax.net.ssl.HostnameVerifier;
@@ -12,7 +14,7 @@ import javax.net.ssl.X509TrustManager;
 import okhttp3.OkHttpClient;
 
 public class UnsafeOkHttpClient {
-    public static OkHttpClient getUnsafeOkHttpClient() {
+    public static OkHttpClient.Builder  getUnsafeOkHttpClientBuilder() {
         try {
             // Create a trust manager that does not validate certificate chains
             final TrustManager[] trustAllCerts = new TrustManager[] {
@@ -48,8 +50,8 @@ public class UnsafeOkHttpClient {
                 }
             });
 
-            OkHttpClient okHttpClient = builder.build();
-            return okHttpClient;
+
+            return builder;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -14,8 +14,8 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hackathon.filighbooking.airportList.AirportPresenter;
-import com.hackathon.filighbooking.airportList.AirportView;
+import com.hackathon.filighbooking.getAirportList.AirportPresenter;
+import com.hackathon.filighbooking.getAirportList.AirportView;
 import com.hackathon.filighbooking.dialog.SearchPlaceDialog;
 import com.hackathon.filighbooking.dialog.SearchPlaceDialogListener;
 import com.hackathon.filighbooking.model.entity.Airport;
@@ -54,12 +54,12 @@ public class MainActivity extends AppCompatActivity implements AirportView,OnChe
         Date departureDate = calendar.getTime();
         calendar.add(Calendar.DAY_OF_MONTH,2);
         Date returnDate = calendar.getTime();
-        //mTripModel = new TripModel("TBB","HAN",departureDate,returnDate,false,2);
         mTripModel = new TripModel();
         mTripModel.setDepartureDay(departureDate);
-        mTripModel.setReturnFlight(false);
+        mTripModel.setIsReturnFlight(true);
+        mTripModel.setReturnDay(returnDate);
         /*********/
-        presenter = new AirportPresenter(this);
+        presenter = new AirportPresenter(this,this);
         presenter.getListAirport();
 //        CustomCalendarDialog dialog = new CustomCalendarDialog(this,this,2019,1,16);
 ////        CustomCalendarView calendarView = dialog.getCalendarView();
@@ -77,10 +77,12 @@ public class MainActivity extends AppCompatActivity implements AirportView,OnChe
         if(!isChecked){
             mReturnDayLayout.setVisibility(View.GONE);
             mReturnDayLayoutDisabled.setVisibility(View.VISIBLE);
+            mTripModel.setIsReturnFlight(false);
         }
         else {
             mReturnDayLayoutDisabled.setVisibility(View.GONE);
             mReturnDayLayout.setVisibility(View.VISIBLE);
+            mTripModel.setIsReturnFlight(true);
         }
     }
 
@@ -218,6 +220,7 @@ public class MainActivity extends AppCompatActivity implements AirportView,OnChe
     public void displayListDeparture(ArrayList<Airport> pListDeparture) {
         txtOriginPlace.setText(pListDeparture.get(0).getName());
         mTripModel.setDepartureAirport(pListDeparture.get(0));
+        presenter.setAirportArrivalCode(pListDeparture.get(0).getCode());
         searchPlaceDialog = new SearchPlaceDialog(getString(R.string.main_outward_leg), pListDeparture);
         searchPlaceDialog.setListener(new SearchPlaceDialogListener() {
             @Override
@@ -234,8 +237,8 @@ public class MainActivity extends AppCompatActivity implements AirportView,OnChe
 
     @Override
     public void displayListArrival(ArrayList<Airport> pListArrival) {
-        txtDestinationPlace.setText(pListArrival.get(1).getName());
-        mTripModel.setArrivalAirport(pListArrival.get(1));
+        txtDestinationPlace.setText(pListArrival.get(0).getName());
+        mTripModel.setArrivalAirport(pListArrival.get(0));
         searchPlaceDialog1 = new SearchPlaceDialog(getString(R.string.main_return_leg), pListArrival);
         searchPlaceDialog1.setListener(new SearchPlaceDialogListener() {
             @Override

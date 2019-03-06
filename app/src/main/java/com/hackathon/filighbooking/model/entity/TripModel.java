@@ -62,7 +62,7 @@ public class TripModel implements Serializable{
         return isReturnFlight;
     }
 
-    public void setReturnFlight(boolean returnFlight) {
+    public void setIsReturnFlight(boolean returnFlight) {
         isReturnFlight = returnFlight;
     }
 

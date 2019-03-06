@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<LinearLayout android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:weightSum="3"
-    android:padding="16dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/choose_day_border">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:padding="16dp"
+        android:background="@drawable/choose_day_border"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -169,3 +173,5 @@
 
         </LinearLayout>
     </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

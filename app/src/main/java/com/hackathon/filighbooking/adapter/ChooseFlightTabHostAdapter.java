@@ -53,7 +53,8 @@ public class ChooseFlightTabHostAdapter extends FragmentPagerAdapter implements 
             switch (position) {
                 case 0:
                     fragment = new FragmentOutwardLeg(outwardListFlight);
-                    ((FragmentOutwardLeg) fragment).setFragmentOutwardLegListener(this);
+                    ((FragmentOutwardLeg)fragment).setFragmentOutwardLegListener(this);
+                    mListener.showNameFragment("alo alo");
                     break;
                 case 1:
                     fragment = new FragmentChangeDay();
