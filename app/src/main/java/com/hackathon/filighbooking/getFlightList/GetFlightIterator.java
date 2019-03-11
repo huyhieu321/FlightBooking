@@ -8,6 +8,7 @@ import com.hackathon.filighbooking.networking.APIService;
 import com.hackathon.filighbooking.networking.APIUtils;
 import com.hackathon.filighbooking.utils.Constant;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,10 +22,15 @@ public class GetFlightIterator {
     private  GetFlightListener mGetFlightListener;
     private APIService service;
     private Context mContext;
+    List<Flight> outwardLegFlightsList;
+    List<Flight> returnLegFlightsList;
+    boolean isGetReturnListSuccess;
+    boolean isGetOutwardListSuccess;
     public GetFlightIterator(Context pContext, GetFlightListener mGetFlightListener) {
         this.mGetFlightListener = mGetFlightListener;
         this.mContext = pContext;
         service = APIUtils.getAPIService(mContext);
+        outwardLegFlightsList = new ArrayList<>();
     }
 
     public  void getListFlight(Date departureDate,String departureAirportCode, String arrivalAirportCode){
@@ -36,11 +42,11 @@ public class GetFlightIterator {
                     @Override
                     public void onNext(List<Flight> flights) {
                         // pass List Flight to presenter
-                        mGetFlightListener.getFlightForTripSuccess(flights);
+                        outwardLegFlightsList = flights;
+                        mGetFlightListener.getFlightForTripSuccess(outwardLegFlightsList);
                     }
 
                     @Override
-                    
                     public void onError(Throwable e) {
                         mGetFlightListener.getFlightForTripError(e.getMessage());
                     }
@@ -53,18 +59,54 @@ public class GetFlightIterator {
 
     }
     public void getListReturnFlight(Date departureDate, Date returnDate,String departureAirportCode, String arrivalAirportCode){
-        String urlGetFlight1 = generateApiUrl(departureDate,departureAirportCode,arrivalAirportCode);
-        String urlGetFlight2 = generateApiUrl(departureDate,arrivalAirportCode,departureAirportCode);
-        Observable<List<Flight>> request1 = service.getFlight(Constant.API_AUTH,urlGetFlight1).subscribeOn(Schedulers.io());
-        Observable<List<Flight>> request2 = service.getFlight(Constant.API_AUTH,urlGetFlight2).subscribeOn(Schedulers.io());
-        Observable
-                .merge(request1,request2)
-                .ignoreElements()
+        String urlGetFlightOutwardLeg = generateApiUrl(departureDate,departureAirportCode,arrivalAirportCode);
+        // Change original Airport -> departure Airport for URL to get List Return Flights
+        String urlGetFlightReturnLeg = generateApiUrl(returnDate,arrivalAirportCode,departureAirportCode);
+        isGetOutwardListSuccess = false;
+        isGetReturnListSuccess = false;
+        returnLegFlightsList = new ArrayList<>();
+        service.getFlight(Constant.API_AUTH,urlGetFlightOutwardLeg)
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnComplete(()->{
-                    Log.i("Mes","Do success ");
-                })
-                .subscribe();
+                .subscribe(new DisposableObserver<List<Flight>>() {
+                    @Override
+                    public void onNext(List<Flight> flightList) {
+                        outwardLegFlightsList = flightList;
+                        isGetOutwardListSuccess = true;
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+        service.getFlight(Constant.API_AUTH,urlGetFlightReturnLeg)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new DisposableObserver<List<Flight>>() {
+                    @Override
+                    public void onNext(List<Flight> flightList) {
+                            returnLegFlightsList = flightList;
+                            isGetReturnListSuccess = true;
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        if(isGetReturnListSuccess && isGetOutwardListSuccess){
+                            mGetFlightListener.getFlightForReturnTripSuccess(outwardLegFlightsList,returnLegFlightsList);
+                        }
+                    }
+                });
+
     }
 
 

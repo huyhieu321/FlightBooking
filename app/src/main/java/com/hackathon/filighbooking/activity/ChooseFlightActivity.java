@@ -3,6 +3,8 @@ package com.hackathon.filighbooking.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
+import android.support.design.widget.TabLayout.TabLayoutOnPageChangeListener;
+import android.support.design.widget.TabLayout.ViewPagerOnTabSelectedListener;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -106,6 +108,12 @@ public class ChooseFlightActivity extends AppCompatActivity implements ChooseFli
 
     private void initFlightsFragmentForReturnTrip(List<Flight> outwardLegListFlight, List<Flight> returnLegListFlight){
         chooseFlightTabHostAdapter = new ChooseFlightTabHostAdapter(fragmentManager,isReturnTrip,outwardLegListFlight,returnLegListFlight);
+        chooseFlightTabHostAdapter.setTabHostListener(this);
+        viewPager.setAdapter(chooseFlightTabHostAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+        viewPager.addOnPageChangeListener(new TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setTabsFromPagerAdapter(chooseFlightTabHostAdapter);
+        tabLayout.addOnTabSelectedListener(new ViewPagerOnTabSelectedListener(viewPager));
     }
 
 

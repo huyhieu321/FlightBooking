@@ -42,7 +42,7 @@ public class ChooseFlightTabHostAdapter extends FragmentPagerAdapter implements 
                     fragment = new FragmentOutwardLeg(outwardListFlight);
                     break;
                 case 1:
-                    fragment = new FragmentReturnLeg(returnLegListFlights);
+                    fragment = new FragmentOutwardLeg(returnLegListFlights); // Show returnLeg
                     break;
                 case 2:
                     fragment = new FragmentChangeDay();
